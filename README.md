@@ -2,7 +2,7 @@
 ---
 
 ## How Neovim loads config
-Neovim supports using `init.lua` as the configuration file. This should be placed in your config directory:
+Neovim supports using `init.lua` as the configuration file.If you have configured neovim before, it's similar to the `init.vim` file or `vimrc` in Vim. This should be placed in your config directory:
 - Linux, BSD or macOS: `~/.config/nvim`
 - Windows: `~/AppData/Local/nvim/`
 
@@ -25,7 +25,6 @@ Neovim config structure:
 |     |-- lsp.lua
 |       :
 ```
-
 The first line of `init.lua`:
 ``` lua
 require("config.options")
