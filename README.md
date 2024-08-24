@@ -10,26 +10,25 @@ Although you can put all the settings inside `init.lua`, you probably don’t wa
 
 To avoid this, separate files to multiple modules and then load them in the `init.lua` using `require()`. You can place those modules in the `lua/` directory in your `runtimepath` (a list of directories to be searched on startup).
 
-Neovim config structure:
-```
-~/.config/nvim
-├── after
-│   └── plugin
-│       ├── autopairs.lua
-│       ├── cmp.lua
-│       ├── dashboard.lua
-│       ├── lualine.lua
-│       ├── nvim-tree.lua
+## The local configuration directory structure
+Understanding the directory structure can be a headache for new users. When Neovim launches, it searches first for the _~/.config/nvim_ directory and expects the following files and directories to be present.
 
-│       ├── telescope.lua
-│       └── treesitter.lua
-|-- init.lua
+> [!NOTE]
+> Note: The list of searched-for directories can also be found by typing `:h runtimepath` on the Neovim command line
+> 
+```
+~/.config/nvim or ~/AppData/Local/nvim/
+├── after
+│   └── plugin                        <-- directory for plugin configurations
+│       ├── autopairs.lua
+        ├── ...
+|-- init.lua                          <-- init file
 |-- lua/
 |  |-- config/
 |  |  |-- options.lua
 |  |  |-- mappings.lua
 |  |  |-- autocmds.lua
-|  |  |-- bootstrap-lazy.lua
+|  |  |-- lazy.lua                    <-- plugin manager file
 |  |-- plugins/
 |     |-- autoclose.lua
 |     |-- lsp.lua
@@ -37,6 +36,13 @@ Neovim config structure:
 └── plugin
     └── packer_compiled.lua
 ```
+
+The /after directory contains files to be loaded after the init.lua script has run.
+The /lua directory contains the plugins configured in Lua.
+Both /plugin and /config directories are searched for runtime files.
+
+
+## init.lua
 The first line of `init.lua`:
 ``` lua
 require("config.options")
@@ -121,7 +127,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 ```
 
 ## Plugins
-Install `lazy.nvim` to manage plugins. We need to instal it first. Remember to `require("config.bootstrap-lazy")` in `init.lua`
+Install `lazy.nvim` to manage plugins. We need to instal it first. Remember to `require("config.lazy")` in `init.lua`
 
 ```lua
 -- lua/config/bootstrap-lazy.lua
