@@ -13,6 +13,16 @@ To avoid this, separate files to multiple modules and then load them in the `ini
 Neovim config structure:
 ```
 ~/.config/nvim
+├── after
+│   └── plugin
+│       ├── autopairs.lua
+│       ├── cmp.lua
+│       ├── dashboard.lua
+│       ├── lualine.lua
+│       ├── nvim-tree.lua
+
+│       ├── telescope.lua
+│       └── treesitter.lua
 |-- init.lua
 |-- lua/
 |  |-- config/
@@ -24,6 +34,8 @@ Neovim config structure:
 |     |-- autoclose.lua
 |     |-- lsp.lua
 |       :
+└── plugin
+    └── packer_compiled.lua
 ```
 The first line of `init.lua`:
 ``` lua
