@@ -47,6 +47,14 @@ When Neovim reads this line on startup, it goes through the `runtimepath`, searc
 > - `.` in the module name is treated as a directory separator when searching.
 > - You don’t need to type the `.lua` extension.
 
+> [!NOTE]
+> you can still use vimscript if you really need by using vim.cmd[],
+> ```lua
+> vim.cmd [[
+>     #vim script goes here!
+>     syntax enable
+> ]]
+
 ## Options
 You can set options via Lua in two ways: `vim.opt` and `vim.o` series. I recommend using `vim.opt` series because it is more Lua-style, you can:
 - use `:append()`, `:prepend()` and `:remove()` to manipulate options
