@@ -67,9 +67,50 @@ Some of functions and meta-accessors:
 - `vim.g` - for for global variables, which you're commonly use for plugins.
 - `vim.opt` - to set global, window, and buffer options. Basiclly :set
 
-You can set options via Lua in two ways: `vim.opt` and `vim.o` series. I recommend using `vim.opt` series because it is more Lua-style, you can:
-- use `:append()`, `:prepend()` and `:remove()` to manipulate options
-- set its value to Lua table
+### vim.g
+This is for global commands, basically anything in the `let g:***` Vimscript namespace. For example, `let g:mapleader = " "` becomes `vim.g.mapleader = " "`
+
+### vim.o
+This will likely be the bread and butter of your migration, as it's the most consistent 1:1 mapping of `set` options and Lua expressions. See for yourself:
+```lua
+vim.o.spell = "yes"
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.swapfile = false
+vim.o.synmaxcol = 30
+```
+
+### vim.opt
+This is a special Lua table (read: hash map or associative array) that allows you to use more Lua-friendly syntax to set options.
+
+For example, `vim.opt.listchars` is pretty nice:
+```lua
+vim.opt.listchars = {
+  tab = "» ",
+  trail = "·",
+  extends = "›",
+  precedes = "‹",
+  nbsp = "␣",
+}
+```
+
+### vim.api: Keymapping and Autocommands
+For more advanced functionality like keymapping and autocommands, you have `vim.api`
+```lua
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = "rust",
+    callback = function()
+        vim.api.nvim_buf_set_option(0, "tabstop", 4)
+        vim.api.nvim_buf_set_option(0, "shiftwidth", 4)
+        vim.api.nvim_buf_set_option(0, "softtabstop", 4)
+    end
+})
+```
+
+```lua
+vim.api.nvim_set_keymap('n', '<leader>s', ':split<CR>',
+    { noremap = true })
+```
 
 ## Keymap
 Add a new mapping:
@@ -146,10 +187,9 @@ vim.opt.rtp:prepend(lazypath)
 -- load plugins
 require("lazy").setup("plugins")
 ```
-Save the lazy.lua file and restart Neovim. Enter :Lazy on the command line to bring up the Lazy plugin manager interface.
+Save the `lazy.lua` file and restart Neovim. Enter `:Lazy` on the command line to bring up the Lazy plugin manager interface.
 
 The command on the last line loads all the `.lua` file under `lua/plugins/` and the returned table will be merged and passed to `setup()`.
-
 ```lua
 -- lua/plugins/autoclose.lua
 return {
@@ -184,7 +224,12 @@ In the returned table, the first line is the plugin's short url and the rest are
 - `opts`: Passing options to the `config` function.
 - `init`: Functions that is executed during startup.
 
+## Configure the plugins after they are loaded
+After plugins are loaded using Lazy, Neovim looks for files in the ~/.config/nvim/after/plugin/ directory to configure them. Every .lua file in this directory is sourced for configuration regardless of naming convention. While this means that you could configure all the plugins in a single file called single_file.lua, this file would be disorganized, large, and difficult to navigate. 
+
 ## References
 - [Vim Cheat Sheet](https://vim.rtorr.com/)
 - [Lua-guide](https://neovim.io/doc/user/lua-guide.html)
 - [nvim-lua-guide](https://github.com/nanotee/nvim-lua-guide)
+- [From modal text editor to full-featured IDE on Fedora Workstation](https://fedoramagazine.org/configuring-neovim-on-fedora-as-an-ide-and-using-lazyvim/)
+- [Learn Vimscript the Hard Way](https://learnvimscriptthehardway.stevelosh.com/chapters/06.html)
