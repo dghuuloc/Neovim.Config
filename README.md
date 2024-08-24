@@ -32,6 +32,7 @@ require("config.options")
 ```
 When Neovim reads this line on startup, it goes through the `runtimepath`, search for `lua/` and load `/config/options.lua`. The default `runtimepath` includes `~/.config/nvim`. This is why we put the `lua/` inside it.
 
-#### Notes
-- `.` in the module name is treated as a directory separator when searching.
-- You don’t need to type the `.lua` extension.
+> [!NOTE]  
+> - `.` in the module name is treated as a directory separator when searching.
+> - You don’t need to type the `.lua` extension.
+
