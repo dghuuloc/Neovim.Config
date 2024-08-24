@@ -56,6 +56,13 @@ When Neovim reads this line on startup, it goes through the `runtimepath`, searc
 > ]]
 
 ## Options
+Some of functions and meta-accessors:
+- `vim.o` - for general settings
+- `vim.wo` - for for window-scoped options.
+- `vim.bo` - for for buffer-scoped settings.
+- `vim.g` - for for global variables, which you're commonly use for plugins.
+- `vim.opt` - to set global, window, and buffer options. Basiclly :set
+
 You can set options via Lua in two ways: `vim.opt` and `vim.o` series. I recommend using `vim.opt` series because it is more Lua-style, you can:
 - use `:append()`, `:prepend()` and `:remove()` to manipulate options
 - set its value to Lua table
