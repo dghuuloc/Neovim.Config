@@ -36,11 +36,9 @@ Understanding the directory structure can be a headache for new users. When Neov
 └── plugin
     └── packer_compiled.lua
 ```
-
-The /after directory contains files to be loaded after the init.lua script has run.
-The /lua directory contains the plugins configured in Lua.
-Both /plugin and /config directories are searched for runtime files.
-
+The `/after` directory contains files to be loaded after the `init.lua` script has run.
+The `/lua` directory contains the plugins configured in Lua.
+Both `/plugin` and `/config` directories are searched for runtime files.
 
 ## init.lua
 The first line of `init.lua`:
@@ -148,6 +146,8 @@ vim.opt.rtp:prepend(lazypath)
 -- load plugins
 require("lazy").setup("plugins")
 ```
+Save the lazy.lua file and restart Neovim. Enter :Lazy on the command line to bring up the Lazy plugin manager interface.
+
 The command on the last line loads all the `.lua` file under `lua/plugins/` and the returned table will be merged and passed to `setup()`.
 
 ```lua
