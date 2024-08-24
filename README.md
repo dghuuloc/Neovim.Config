@@ -145,7 +145,6 @@ Create an autocommand envent handler:
 ```lua
 nvim_create_autocmd({event}, "*opts})
 ```
-
 {event}: (String or array) events that will trigger the handler
 - BufEnter: after entering a buffer
 - CmdlineLeave: before leaving the command-line
@@ -164,6 +163,30 @@ vim.api.nvim_create_autocmd("BufEnter", {
    end
 })
 ```
+## Setting Options
+If you've used Neovim, you're probably already familiar with several of these options, but if you're not, here's an explanation of each one:
+- `background=dark`: apply the color set to dark screens. Not just the background of the screen, as it may seem.
+- `clipboard=unnamedplus`: enables the clipboard between Neovim and other system programs.
+- `completeopt`: modifies the behavior of the auto-complete menu to behave more like an IDE.
+- `cursorline`: highlights the current line in the editor.
+- `expandtab`: turns tabs into spaces.
+- f`oldexpr and foldmethod`: these options were added to improve the code folding behavior in TreeSitter.
+- `hidden`: hide unused buffers.
+- `inccommand=split`: show replacements in a split window, before applying to the file.
+- `mouse=a`: allows the use of the mouse.
+- `number`: shows the line numbers.
+- `relativenumber`: shows lines numbers starting from the current one. Useful to assist in commands that use more lines.
+- `shiftwidth=2`: number of spaces when indenting the text.
+- `splitbelow and splitright`: change the behavior of splitting the screen with the command :split (split the screen - horizontally) and :vsplit (vertically). In this case, the screens will always split below the current screen and to the right.
+- `swapfile = false`: inhibit the creation of Vim .swp files.
+- `tabstop=2`: number of spaces for tabs.
+- `termguicolors`: expands the number of usable colors, if the terminal emulator supports it.
+- `title`: shows the title of the file.
+- `ttimeoutlen=0`: time in milliseconds to accept commands.
+- `updatetime`: time in milliseconds that language servers use to check for errors.
+- `wildmenu`: shows a more advanced menu for autocomplete suggestions.
+
+
 
 ## Plugins
 Install `lazy.nvim` to manage plugins. We need to instal it first. Remember to `require("config.lazy")` in `init.lua`
