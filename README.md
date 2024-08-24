@@ -177,3 +177,8 @@ In the returned table, the first line is the plugin's short url and the rest are
 - `config`: Function that is exwcuted when the plugin loads. The default implementation will run `require("plugin").setup(opts)`.
 - `opts`: Passing options to the `config` function.
 - `init`: Functions that is executed during startup.
+
+## References
+- [Vim Cheat Sheet](https://vim.rtorr.com/)
+- [Lua-guide](https://neovim.io/doc/user/lua-guide.html)
+- [nvim-lua-guide](https://github.com/nanotee/nvim-lua-guide)
