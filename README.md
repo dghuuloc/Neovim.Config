@@ -232,4 +232,4 @@ After plugins are loaded using Lazy, Neovim looks for files in the ~/.config/nvi
 - [Lua-guide](https://neovim.io/doc/user/lua-guide.html)
 - [nvim-lua-guide](https://github.com/nanotee/nvim-lua-guide)
 - [From modal text editor to full-featured IDE on Fedora Workstation](https://fedoramagazine.org/configuring-neovim-on-fedora-as-an-ide-and-using-lazyvim/)
-- [Learn Vimscript the Hard Way](https://learnvimscriptthehardway.stevelosh.com/chapters/06.html)
+- [Learn Vimscript the Hard Way](https://learnvimscriptthehardway.stevelosh.com/)
