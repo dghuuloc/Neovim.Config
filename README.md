@@ -61,3 +61,93 @@ vim.keymap.set({mode}, {lhs}, {rhs}, {opts})
 - {opts}: (table) optional parameters
   - silent: define a mapping that will not be echoed on the command line
   - noremap: disable recursive mapping
+
+``` lua
+-- map leader+w to save current file in normal mode
+vim.keymap.set("n", "<Leader>w", ":write<CR>", { noremap = true, silent = true })
+
+-- map leader+y to copy to system clipboard in normal and visual mode
+vim.keymap.set({ "n", "v" }, "<Leader>y", '"+y', { noremap = true, silent = true })
+```
+## Auto Conmmands
+Create an autocommand envent handler:
+```lua
+nvim_create_autocmd({event}, "*opts})
+```
+
+{event}: (String or array) events that will trigger the handler
+- BufEnter: after entering a buffer
+- CmdlineLeave: before leaving the command-line
+{opts}: options
+- pattern (string or array): pattern to match
+- callback (function or string): Lua function called when the event is triggered
+
+```lua
+-- set tab to 3 space when entering a buffer with .lua file
+vim.api.nvim_create_autocmd("BufEnter", {
+   pattern = { "*.lua" },
+   callback = function()
+      vim.opt.shiftwidth = 3
+      vim.opt.tabstop = 3
+      vim.opt.softtabstop = 3
+   end
+})
+```
+
+## Plugins
+Install `lazy.nvim` to manage plugins. We need to instal it first. Remember to `require("config.bootstrap-lazy")` in `init.lua`
+
+```lua
+-- lua/config/bootstrap-lazy.lua
+-- install lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+   vim.fn.system({
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "https://github.com/folke/lazy.nvim.git",
+      "--branch=stable", -- latest stable release
+      lazypath,
+   })
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- load plugins
+require("lazy").setup("plugins")
+```
+The command on the last line loads all the `.lua` file under `lua/plugins/` and the returned table will be merged and passed to `setup()`.
+
+```lua
+-- lua/plugins/autoclose.lua
+return {
+   {
+      "m4xshen/autoclose.nvim",
+      opts = {
+         options = {
+            disabled_filetypes = { "text" },
+            disable_when_touch = true,
+            pair_spaces = true,
+         },
+      },
+   },
+   "windwp/nvim-ts-autotag",
+   {
+      "kylechui/nvim-surround",
+      version = "*",
+      event = "VeryLazy",
+      config = function()
+         require("nvim-surround").setup({
+            keymaps = {
+               normal = "gs",
+               normal_cur = "gss",
+            },
+         })
+      end,
+   },
+}
+```
+In the returned table, the first line is the plugin's short url and the rest are arguments(optional) to set plugins up:
+- `config`: Function that is exwcuted when the plugin loads. The default implementation will run `require("plugin").setup(opts)`.
+- `opts`: Passing options to the `config` function.
+- `init`: Functions that is executed during startup.
