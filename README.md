@@ -250,6 +250,64 @@ In the returned table, the first line is the plugin's short url and the rest are
 ## Configure the plugins after they are loaded
 After plugins are loaded using Lazy, Neovim looks for files in the ~/.config/nvim/after/plugin/ directory to configure them. Every .lua file in this directory is sourced for configuration regardless of naming convention. While this means that you could configure all the plugins in a single file called single_file.lua, this file would be disorganized, large, and difficult to navigate. 
 
+## NetRW: Vim's default file manager 
+When opening Vim or Neovim using the `[n]vim .` command to open the project directory, the file listing will appear inside it. It can also be opened using the `:Ex` ,`:Vex` or `:Sex` commands.
+
+You can use it with the default settings, but personally, some things bother me, so I used the following settings:
+
+```lua
+-- File Browser
+vim.g.netrw_banner=0
+vim.g.netrw_liststyle=0
+vim.g.netrw_browse_split=4
+vim.g.netrw_altv=1
+vim.g.netrw_winsize=25
+vim.g.netrw_keepdir=0
+vim.g.netrw_localcopydircmd='cp -r'
+```
+Here's the emplanation:
+- `netrw_banner=0`: hides the top banner that appears by default.
+- `netrw_liststyle=0`: change the display of files.
+        - `0` shows only one directory at a time.
+        - `1` shows file data.
+        - `2` shows files in columns.
+        - `3` shows as a tree where open directories are expanded.
+- `netrw_browse_split=4`: changes how files are opened.
+        - `1` opens files in a horizontal split.
+        - `2` opens in a vertical split.
+        - `3` opens in a new tab.
+        - `4` opens in a previous window, avoiding the creation of more divisions.
+- `netrw_altv=1`: switches the NetRW display to the left.
+- `netrw_winsize=25`: limits window size to 25% of available screen space.
+- `netrw_keepdir=0`: keeps the directory you accessed previously.
+- `netrw_localcopydircmd`: modifies the command used to copy files. By default, NetRW just copies empty folders. To change this, I set the default command to cp -r so that the copy occurs recursively.
+
+To make creating files easier, I've added more settings:
+```vim
+" This is a vimscript, if you're using Lua, you should convert this script into your configuration
+" Create file without opening buffer
+function! CreateInPreview()
+  let l:filename = input('please enter filename: ')
+  execute 'silent !touch ' . b:netrw_curdir.'/'.l:filename
+  redraw!
+endfunction
+
+" Netrw: create file using touch instead of opening a buffer
+function! Netrw_mappings()
+  noremap <buffer>% :call CreateInPreview()<cr>
+endfunction
+
+augroup auto_commands
+    autocmd filetype netrw call Netrw_mappings()
+augroup END
+```
+This prevents NetRW from opening an empty screen just to create a file.
+
+> [!WARNING]
+> ___NetRW and its problems:__
+> There are several criticisms of NetRW for the way it causes a buffer mess. From what I've researched, it seems that using `netrw_liststyle=3` tree mode tends to make this behavior worse. Errors are random, making fixing it a difficult process, and updating only NetRW is more complex than it should be.
+
+
 ## References
 - [Vim Cheat Sheet](https://vim.rtorr.com/)
 - [Lua-guide](https://neovim.io/doc/user/lua-guide.html)
