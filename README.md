@@ -311,6 +311,7 @@ This prevents NetRW from opening an empty screen just to create a file.
 - [Vim Cheat Sheet](https://vim.rtorr.com/)
 - [Vim cheatsheet](https://devhints.io/vim)
 - [Neovim-tui.ninja](https://tui.ninja/neovim/)
+- [Boost your coding with Nvim](https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/cheatsheet/)
 - [My lazy neovim config](https://dev.to/voyeg3r/my-lazy-neovim-config-3h6o)
 - [Configuring Neovim with development experience in mind](https://dev.to/tolomeo/configuring-neovim-for-maintenance-and-usability-1gbl)
 - [Neovim Beginner's Guide: Basic Configuration](https://youngxhui.top/en/2023/07/nvim-guideline-1basic-config/)
