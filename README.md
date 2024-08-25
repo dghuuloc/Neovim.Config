@@ -307,9 +307,10 @@ This prevents NetRW from opening an empty screen just to create a file.
 > ___NetRW and its problems:__
 > There are several criticisms of NetRW for the way it causes a buffer mess. From what I've researched, it seems that using `netrw_liststyle=3` tree mode tends to make this behavior worse. Errors are random, making fixing it a difficult process, and updating only NetRW is more complex than it should be.
 
-
+----------
 ## References
 - [Vim Cheat Sheet](https://vim.rtorr.com/)
+- [Vim cheatsheet](https://devhints.io/vim)
 - [Lua-guide](https://neovim.io/doc/user/lua-guide.html)
 - [nvim-lua-guide](https://github.com/nanotee/nvim-lua-guide)
 - [From modal text editor to full-featured IDE on Fedora Workstation](https://fedoramagazine.org/configuring-neovim-on-fedora-as-an-ide-and-using-lazyvim/)
