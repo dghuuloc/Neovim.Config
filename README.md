@@ -324,3 +324,4 @@ This prevents NetRW from opening an empty screen just to create a file.
 - [vimcolorschemes](https://vimcolorschemes.com/i/top/b.dark/e.neovim)
 - [A Vim Configuration Primer for Filetype-Specific Workflows](https://ejmastnak.com/tutorials/vim-latex/vimscript/)
 - [Vimrc Configuration Guide](https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/)
+- [NeoVim Lua configuration for PHP and JavaScript (WordPress, Gutenberg) development](https://marioyepes.com/blog/neovim-ide-with-lua-for-web-development/)
