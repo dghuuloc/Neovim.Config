@@ -170,7 +170,7 @@ If you've used Neovim, you're probably already familiar with several of these op
 - `completeopt`: modifies the behavior of the auto-complete menu to behave more like an IDE.
 - `cursorline`: highlights the current line in the editor.
 - `expandtab`: turns tabs into spaces.
-- f`oldexpr and foldmethod`: these options were added to improve the code folding behavior in TreeSitter.
+- `foldexpr and foldmethod`: these options were added to improve the code folding behavior in TreeSitter.
 - `hidden`: hide unused buffers.
 - `inccommand=split`: show replacements in a split window, before applying to the file.
 - `mouse=a`: allows the use of the mouse.
