@@ -148,13 +148,6 @@ vim.keymap.set("v", "<leader>a", ":wq<CR>", opts)
   - silent: define a mapping that will not be echoed on the command line
   - noremap: disable recursive mapping
 
-``` lua
--- map leader+w to save current file in normal mode
-vim.keymap.set("n", "<Leader>w", ":write<CR>", { noremap = true, silent = true })
-
--- map leader+y to copy to system clipboard in normal and visual mode
-vim.keymap.set({ "n", "v" }, "<Leader>y", '"+y', { noremap = true, silent = true })
-```
 ## Auto Conmmands
 Create an autocommand envent handler:
 ```lua
