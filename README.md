@@ -268,15 +268,15 @@ vim.g.netrw_localcopydircmd='cp -r'
 Here's the emplanation:
 - `netrw_banner=0`: hides the top banner that appears by default.
 - `netrw_liststyle=0`: change the display of files.
-        - `0` shows only one directory at a time.
-        - `1` shows file data.
-        - `2` shows files in columns.
-        - `3` shows as a tree where open directories are expanded.
+  - `0` shows only one directory at a time.
+  - `1` shows file data.
+  - `2` shows files in columns.
+  - `3` shows as a tree where open directories are expanded.
 - `netrw_browse_split=4`: changes how files are opened.
-        - `1` opens files in a horizontal split.
-        - `2` opens in a vertical split.
-        - `3` opens in a new tab.
-        - `4` opens in a previous window, avoiding the creation of more divisions.
+  - `1` opens files in a horizontal split.
+  - `2` opens in a vertical split.
+  - `3` opens in a new tab.
+  - `4` opens in a previous window, avoiding the creation of more divisions.
 - `netrw_altv=1`: switches the NetRW display to the left.
 - `netrw_winsize=25`: limits window size to 25% of available screen space.
 - `netrw_keepdir=0`: keeps the directory you accessed previously.
