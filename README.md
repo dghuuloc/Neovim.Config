@@ -186,8 +186,6 @@ If you've used Neovim, you're probably already familiar with several of these op
 - `updatetime`: time in milliseconds that language servers use to check for errors.
 - `wildmenu`: shows a more advanced menu for autocomplete suggestions.
 
-
-
 ## Plugins
 Install `lazy.nvim` to manage plugins. We need to instal it first. Remember to `require("config.lazy")` in `init.lua`
 
@@ -304,7 +302,7 @@ augroup END
 This prevents NetRW from opening an empty screen just to create a file.
 
 > [!WARNING]
-> ___NetRW and its problems:__
+> __NetRW and its problems:__
 > There are several criticisms of NetRW for the way it causes a buffer mess. From what I've researched, it seems that using `netrw_liststyle=3` tree mode tends to make this behavior worse. Errors are random, making fixing it a difficult process, and updating only NetRW is more complex than it should be.
 
 ----------
