@@ -312,6 +312,7 @@ This prevents NetRW from opening an empty screen just to create a file.
 - [The Neovim Path](https://www.sherpa.guide/paths/neovim)
 - [Vim Cheat Sheet](https://vim.rtorr.com/)
 - [Vim cheatsheet](https://devhints.io/vim)
+- [Neovim Beginner's Guide (Part 1): Basic Configuration](https://youngxhui.top/en/2023/07/nvim-guideline-1basic-config/)
 - [Lua-guide](https://neovim.io/doc/user/lua-guide.html)
 - [nvim-lua-guide](https://github.com/nanotee/nvim-lua-guide)
 - [From modal text editor to full-featured IDE on Fedora Workstation](https://fedoramagazine.org/configuring-neovim-on-fedora-as-an-ide-and-using-lazyvim/)
