@@ -113,9 +113,24 @@ vim.api.nvim_set_keymap('n', '<leader>s', ':split<CR>',
 ```
 
 ## Keymap
-Add a new mapping:
+To set keymaps in Lua, you have mainly two options: `vim.api.nvim_set_keymap({mode}, {lhs}, {rhs}, {opts})` or `vim.keymap.set({mode}, {lhs}, {rhs}, {opts})`, where the latter is basically a wrapper for the former. The main difference in terms of configuration is that using `vim.keymap.set` allows you to assign a mapping to a Lua function in a more elegant way. Here are examples for both:
 ```lua
-vim.keymap.set({mode}, {lhs}, {rhs}, {opts})
+-- opts set in a table to not repeat them everytime
+local opts = { noremap = true, silent = true }
+-- (mode, lhs, rhs, options)
+-- lhs = keys to be mapped, rhs = command executed
+vim.api.nvim_set_keymap("v", ">", ">gv", opts) -- like vnoremap
+
+-- (mode, lhs, rhs, options)
+-- here mode can be a either string or a table
+-- rhs can be either a string with commands or a lua function
+function my_func()
+    vim.cmd([[echo "hello world"]]) -- this is a string
+end
+vim.keymap.set({"v", "n"}, ">", my_func, opts)
+
+-- map a command
+vim.keymap.set("v", "<leader>a", ":wq<CR>", opts)
 ```
 - {mode} (string or table) mode short-name
   - "": Normal, Visual, Select, Operator-pending mode
