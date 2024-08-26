@@ -322,6 +322,7 @@ This prevents NetRW from opening an empty screen just to create a file.
 - [Boost your coding with Nvim](https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/cheatsheet/)
 - [My lazy neovim config](https://dev.to/voyeg3r/my-lazy-neovim-config-3h6o)
 - [Configuring Neovim with development experience in mind](https://dev.to/tolomeo/configuring-neovim-for-maintenance-and-usability-1gbl)
+- [NeoVim setup in Lua for OCaml development](https://nyinyithan.com/nvim-setup-ocaml/)
 - [How I made my Neovim statusline in Lua](https://elianiva.my.id/posts/neovim-lua-statusline/)
 - [Neovim Beginner's Guide: Basic Configuration](https://youngxhui.top/en/2023/07/nvim-guideline-1basic-config/)
 - [From init.vim to init.lua - a crash course](https://www.notonlycode.org/neovim-lua-config/)
