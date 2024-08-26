@@ -8,9 +8,12 @@ vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true}
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
---[[ Neo-tree ]]
--- vim.api.nvim_set_keymap('n', '<leader>e', ':neotree filesystem reveal left toggle<cr>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<cr>', {noremap = true, silent = true , desc = "Toggle Explorer"})
+--[[  Core execution ]]
+vim.api.nvim_set_keymap('n', '<leader>x', '<Cmd>.lua<CR>', {noremap = true, silent = true , desc = "Execute the current line"})
+vim.api.nvim_set_keymap('n', '<leader><leader>x', '<Cmd>source%<CR>', {noremap = true, silent = true , desc = "Execute the current file"})
+
+--[[  NvimTreeToggle ]]
+vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<cr>', {noremap = true, silent = true , desc = "Toggle File Explorer"})
 
 --[[ Telescope ]]
 vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files<CR>', {noremap = true, silent = true})
@@ -59,3 +62,20 @@ vim.api.nvim_set_keymap('', '<leader>Q', '<Cmd>quitall<CR>', {noremap = true, si
 --[[ Remove search hightlights after searching ]]
 vim.api.nvim_set_keymap('n', '<Esc>', '<Cmd>nohlsearch<CR>', {noremap = true, silent = true})
 
+-- [[ Hide/Show diagnostics ]]
+local function hide_diagnostics()
+    vim.diagnostic.config({  -- https://neovim.io/doc/user/diagnostic.html
+        virtual_text = false,
+        signs = false,
+        underline = false,
+    })
+end
+local function show_diagnostics()
+    vim.diagnostic.config({
+        virtual_text = true,
+        signs = true,
+        underline = true,
+    })
+end
+vim.keymap.set("n", "<leader>dh", hide_diagnostics, {noremap = true, silent = true, desc = "Hide diagnostics"})
+vim.keymap.set("n", "<leader>ds", show_diagnostics, {noremap = true, silent = true, desc = "Show diagnostics"})
