@@ -329,6 +329,8 @@ This prevents NetRW from opening an empty screen just to create a file.
 - [Vim Cheat Sheet](https://vim.rtorr.com/)
 - [Vim cheatsheet](https://devhints.io/vim)
 - [How to get human rights in Neovim without plugins](https://boltlessengineer.github.io/posts/neovim-config-without-plugins/)
+- [Write a Neovim Plugin with Lua](https://www.linode.com/docs/guides/write-a-neovim-plugin-with-lua/)
+- [How to write a neovim plugin in lua](https://miguelcrespo.co/posts/how-to-write-a-neovim-plugin-in-lua/)
 - [LuaScript Boilerplate](https://teukka.tech/luanvim.html)
 - [moving from vimscript to lua in neovim](https://www.pondo.dev/blog/lua_with_neovim)
 - [Vim_Config_NO_PLUGINS](https://github.com/YanivZalach/Vim_Config_NO_PLUGINS)
