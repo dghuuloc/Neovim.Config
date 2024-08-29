@@ -13,12 +13,9 @@ vim.api.nvim_set_keymap('n', '<leader>x', '<Cmd>.lua<CR>', {noremap = true, sile
 vim.api.nvim_set_keymap('n', '<leader><leader>x', '<Cmd>source%<CR>', {noremap = true, silent = true , desc = "Execute the current file"})
 
 --[[  NvimTreeToggle ]]
-vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<cr>', {noremap = true, silent = true , desc = "Toggle File Explorer"})
+-- vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<cr>', {noremap = true, silent = true , desc = "Toggle File Explorer"})
 
---[[ Telescope ]]
-vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files<CR>', {noremap = true, silent = true})
-
---[[ better window movement ]]
+--[[ Better window movement ]]
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {noremap = true, silent = true})
@@ -34,6 +31,9 @@ vim.api.nvim_set_keymap('n', '<C-Right>', ':vertical resize +2<CR>', {silent = t
 vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true, desc = "Buffer Next"})
 vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', {noremap = true, silent = true, desc = "Buffer Previous"})
 vim.api.nvim_set_keymap('', '<leader>bq',':bdelete<CR>', {noremap = true, silent = true, desc = "Buffer Delete"})
+
+--[[ Select All Vim ]]
+vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG', {noremap = true, silent = true, desc = ""})
 
 --[[ Better indenting ]]
 vim.api.nvim_set_keymap('v', '<', '<gv', {noremap = true, silent = true})

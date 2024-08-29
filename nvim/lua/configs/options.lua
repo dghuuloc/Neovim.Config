@@ -13,13 +13,14 @@ local options = {
     completeopt = { "menuone", "noselect" }, -- mostly just for cmp
     conceallevel = 0,                        -- so that `` is visible in markdown files
     fileencoding = "utf-8",                  -- the encoding written to a file
+    encoding = "utf-8",                      -- the encoding written to a file
     hidden = true,                           -- required to keep multiple buffers and open multiple buffers
     hlsearch = true,                         -- highlight all matches on previous search pattern
     ignorecase = true,                       -- ignore case in search patterns
     mouse = "a",                             -- allow the mouse to be used in neovim
     -- pumheight = 10,                          -- pop up menu height
     showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
-    showtabline = 2,                         -- always show tabs
+    showtabline = 1,                         -- always show tabs
     -- winbar = '%=%m %F',
     smartcase = true,                        -- smart case
     smartindent = false,                     -- make indenting smarter again
@@ -45,81 +46,48 @@ local options = {
     scrolloff = 8,                           -- is one of my fav
     sidescrolloff = 8,
     guifont = "monospace:h17",               -- the font used in graphical neovim applications
+
 }
-
--- File Explore with NetRW
--- vim.g.netrw_winsize = 15
--- vim.g.netrw_banner = 0
--- vim.g.netrw_keepdir = 0
-
-vim.opt.shortmess:append "c"
-vim.opt.formatoptions:remove('c');
-vim.opt.formatoptions:remove('r');
-vim.opt.formatoptions:remove('o');
-vim.opt.fillchars:append('stl: ');
-vim.opt.fillchars:append('eob: ');
-vim.opt.fillchars:append('fold: ');
-vim.opt.fillchars:append('foldopen: ');
-vim.opt.fillchars:append('foldsep: ');
-vim.opt.fillchars:append('foldclose:');
 
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+vim.opt.shortmess:append "c"
+vim.opt.formatoptions:remove('c');
+vim.opt.formatoptions:remove('r');
+vim.opt.formatoptions:remove('o');
+
+-- [[ Fillchars ]]
+-- vim.opt.fillchars:append('stl: ');
+-- vim.opt.fillchars:append('eob: ');          
+-- vim.opt.fillchars:append('fold: ');
+-- vim.opt.fillchars:append('foldopen: ');
+-- vim.opt.fillchars:append('foldsep: ');
+-- vim.opt.fillchars:append('foldclose:');
+
+-- [[ File Explore with NetRW Settings ]]
+-- Disable netrw
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
+
+
+-- Colors
+vim.g.t_co = 256
+vim.opt.termguicolors = true
+
+-- map close parenthesis in neovim
+vim.api.nvim_set_keymap('i', '"', '""<left>', {silent = true, noremap = true})
+vim.api.nvim_set_keymap('i', "'", "''<left>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap('i', '(', '()<left>', {silent = true, noremap = true})
+vim.api.nvim_set_keymap('i', '<', '<><left>', {silent = true, noremap = true})
+vim.api.nvim_set_keymap('i', '[', '[]<left>', {silent = true, noremap = true})
+vim.api.nvim_set_keymap('i', '{', '{}<left>', {silent = true, noremap = true})
+
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 
 -- Statusline
-vim.opt.statusline = "%{mode() == 'n' ? '[Normal]' : mode() == 'i' ? '[Insert]' : mode() == 'v' ? '[Visual]' : mode() == 'c' ? '[Command]' : mode() == 't' ? '[Terminal]' : ''} %= %y[%l,%c]"
-
--- Tabline
-function Tabline()
-	local tabs = {}
-	local tab_length = vim.fn.tabpagenr('$')
-	local tabline_length = 0
-
-	for index = 1, tab_length do
-		local winnr = vim.fn.tabpagewinnr(index)
-        local buflist = vim.fn.tabpagebuflist(index)
-        local bufnr = buflist[winnr]
-        local bufname = vim.fn.bufname(bufnr)
-		local bufmodified = vim.fn.getbufvar(bufnr, '&mod')
-		local title = vim.fn.fnamemodify(bufname, ':~:.')
-		local width = tostring(index):len() + title:len() + 4
-
-		tabline_length = tabline_length + width
-
-		table.insert(
-			tabs,
-			{
-				title = title,
-				bufmodified = bufmodified,
-				width = width,
-			}
-		)
-	end
-
-	local tabline_length_diff = math.ceil(tabline_length - vim.o.columns)
-	local shorten_title = tabline_length_diff > 0
-
-	local tabline = ''
-	for index, tab in ipairs(tabs) do
-		local modifier = (tab.bufmodified == 1 and 'Mod' or '')
-		local tabline_used_part = tab.width / tabline_length;
-
-		tabline = tabline
-			.. (index == vim.fn.tabpagenr() and '%#TabLineSel' .. modifier .. '#' or '%#TabLine' .. modifier ..'#')
-			.. ' ' .. index .. ': '
-			.. (shorten_title
-				and string.sub(tab.title, math.ceil(tabline_length_diff * tabline_used_part) + 1, -1)
-				or tab.title
-			)
-			.. ' %#TabLineFill#%T'
-	end
-
-	return tabline
-end
-
+-- vim.opt.statusline = "%{mode() == 'n' ? '[Normal]' : mode() == 'i' ? '[Insert]' : mode() == 'v' ? '[Visual]' : mode() == 'c' ? '[Command]' : mode() == 't' ? '[Terminal]' : ''} ~ %f%*%m %= %y[%l,%c]"
+vim.opt.statusline = "%{mode() == 'n' ? '[Normal]' : mode() == 'i' ? '[Insert]' : mode() == 'v' ? '[Visual]' : mode() == 'c' ? '[Command]' : mode() == 't' ? '[Terminal]' : ''} %= %f%*%m"
 vim.opt.tabline = "%f%*%m"
--- vim.opt.tabline = '%!v:lua.Tabline()'

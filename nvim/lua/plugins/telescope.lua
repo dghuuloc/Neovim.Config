@@ -3,7 +3,6 @@ return {
     tag = '0.1.8',
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope-ui-select.nvim",
         "nvim-tree/nvim-web-devicons",
     },
 
@@ -11,19 +10,6 @@ return {
         local actions = require("telescope.actions")
 
         require("telescope").setup({
-             -- use ui-select dropdown as our ui
-            extensions = {
-                ["ui-select"] = {
-                    require("telescope.themes").get_dropdown {}
-                },
-                fzf = {
-                    fuzzy = true,                   -- false will only do exact matching
-                    override_generic_sorter = true, -- override the generic sorter
-                    override_file_sorter = true,    -- override the file sorter
-                    case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
-                },
-            },
-
             defaults = {
                 initial_mode = "normal",
 
@@ -115,9 +101,6 @@ return {
                 }
             },
         })
-
-        -- load the ui-select extension
-        require("telescope").load_extension("ui-select")
 
         -- get access to telescopes built in functions
         local builtin = require('telescope.builtin')
