@@ -1,6 +1,9 @@
 # <div align="center">Configuring Neovim with Lua - What You Should Know</div>
----
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<p align="center">
+  <img width="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Vimlogo.svg/1200px-Vimlogo.svg.png" alt="Vim Logo">
+   <img width="600" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Neovim-logo.svg/1200px-Neovim-logo.svg.png" alt="Neovim Logo">
+</p>
 ## How Neovim loads config
 Neovim supports using `init.lua` as the configuration file.If you have configured neovim before, it's similar to the `init.vim` file or `vimrc` in Vim. This should be placed in your config directory:
 - Linux, BSD or macOS: `~/.config/nvim`
@@ -323,6 +326,8 @@ This prevents NetRW from opening an empty screen just to create a file.
 - [The Neovim Path](https://www.sherpa.guide/paths/neovim)
 - [Vim Cheat Sheet](https://vim.rtorr.com/)
 - [Vim cheatsheet](https://devhints.io/vim)
+- [How to get human rights in Neovim without plugins](https://boltlessengineer.github.io/posts/neovim-config-without-plugins/)
+- [Vim_Config_NO_PLUGINS](https://github.com/YanivZalach/Vim_Config_NO_PLUGINS)
 - [Neovim-tui.ninja](https://tui.ninja/neovim/)
 - [Boost your coding with Nvim](https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/cheatsheet/)
 - [My lazy neovim config](https://dev.to/voyeg3r/my-lazy-neovim-config-3h6o)
