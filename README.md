@@ -174,25 +174,30 @@ vim.api.nvim_create_autocmd("BufEnter", {
 ## Setting Options
 If you've used Neovim, you're probably already familiar with several of these options, but if you're not, here's an explanation of each one:
 - `background=dark`: apply the color set to dark screens. Not just the background of the screen, as it may seem.
-- `clipboard=unnamedplus`: enables the clipboard between Neovim and other system programs.
+- `clipboard=unnamedplus`: Allows Neovim to use the system clipboard for copy-paste operations. With this setting, anything you yank or delete in Neovim is also available in the system clipboard, making it accessible to other applications.
 - `completeopt`: modifies the behavior of the auto-complete menu to behave more like an IDE.
-- `cursorline`: highlights the current line in the editor.
-- `expandtab`: turns tabs into spaces.
+- `cursorline`: Highlights the current line by displaying a horizontal line across the entire width of the window.
 - `foldexpr and foldmethod`: these options were added to improve the code folding behavior in TreeSitter.
-- `hidden`: hide unused buffers.
+- `hidden`: Allows you to switch between buffers without saving changes. When you switch buffers, Neovim hides the current buffer instead of closing it.
 - `inccommand=split`: show replacements in a split window, before applying to the file.
 - `mouse=a`: allows the use of the mouse.
-- `number`: shows the line numbers.
+- `number`: Displays line numbers on the left side of the buffer, making it easier to navigate and reference specific lines.
+- `smartindent`: Improves indentation for specific programming languages by automatically adjusting the indent level based on the code syntax.
+- `autoindent`: Automatically indents new lines based on the indentation level of the previous line. It helps maintain proper code formatting.
+- `expandtab`: Converts tab characters to spaces when you press the Tab key. It helps maintain consistent indentation across different systems.
 - `relativenumber`: shows lines numbers starting from the current one. Useful to assist in commands that use more lines.
-- `shiftwidth=2`: number of spaces when indenting the text.
+- `shiftwidth=4`: Sets the number of spaces used for each level of indentation when using the Shift+> or Shift+< commands.
 - `splitbelow and splitright`: change the behavior of splitting the screen with the command :split (split the screen - horizontally) and :vsplit (vertically). In this case, the screens will always split below the current screen and to the right.
 - `swapfile = false`: inhibit the creation of Vim .swp files.
-- `tabstop=2`: number of spaces for tabs.
+- `tabstop=4`: Sets the number of spaces that a tab character occupies when displayed or inserted.
 - `termguicolors`: expands the number of usable colors, if the terminal emulator supports it.
 - `title`: shows the title of the file.
-- `ttimeoutlen=0`: time in milliseconds to accept commands.
+- `timeoutlen=0`: time in milliseconds to accept commands.
 - `updatetime`: time in milliseconds that language servers use to check for errors.
 - `wildmenu`: shows a more advanced menu for autocomplete suggestions.
+- `history=5000`: Specifies the maximum number of commands that can be stored in the command-line history. In this case, it allows for up to 5000 entries.
+- `encoding=utf8`: Sets the character encoding to UTF-8, which is a widely used encoding for handling Unicode characters.
+- `mouse=a`: Enables mouse support in Neovim, allowing you to use the mouse to interact with the editor.
 
 ## Plugins
 Install `lazy.nvim` to manage plugins. We need to instal it first. Remember to `require("config.lazy")` in `init.lua`
