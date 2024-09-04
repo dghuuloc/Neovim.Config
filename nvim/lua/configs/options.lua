@@ -71,23 +71,23 @@ vim.opt.formatoptions:remove('o');
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
 
-
--- Colors
+-- olors
 vim.g.t_co = 256
 vim.opt.termguicolors = true
 
 -- map close parenthesis in neovim
-vim.api.nvim_set_keymap('i', '"', '""<left>', {silent = true, noremap = true})
-vim.api.nvim_set_keymap('i', "'", "''<left>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap('i', '(', '()<left>', {silent = true, noremap = true})
-vim.api.nvim_set_keymap('i', '<', '<><left>', {silent = true, noremap = true})
-vim.api.nvim_set_keymap('i', '[', '[]<left>', {silent = true, noremap = true})
-vim.api.nvim_set_keymap('i', '{', '{}<left>', {silent = true, noremap = true})
+-- vim.api.nvim_set_keymap('i', '"', '""<left>', {silent = true, noremap = true})
+-- vim.api.nvim_set_keymap('i', "'", "''<left>", {silent = true, noremap = true})
+-- vim.api.nvim_set_keymap('i', '(', '()<left>', {silent = true, noremap = true})
+-- vim.api.nvim_set_keymap('i', '<', '<><left>', {silent = true, noremap = true})
+-- vim.api.nvim_set_keymap('i', '[', '[]<left>', {silent = true, noremap = true})
+-- vim.api.nvim_set_keymap('i', '{', '{}<left>', {silent = true, noremap = true})
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 
 -- Statusline
 -- vim.opt.statusline = "%{mode() == 'n' ? '[Normal]' : mode() == 'i' ? '[Insert]' : mode() == 'v' ? '[Visual]' : mode() == 'c' ? '[Command]' : mode() == 't' ? '[Terminal]' : ''} ~ %f%*%m %= %y[%l,%c]"
-vim.opt.statusline = "%{mode() == 'n' ? '[Normal]' : mode() == 'i' ? '[Insert]' : mode() == 'v' ? '[Visual]' : mode() == 'c' ? '[Command]' : mode() == 't' ? '[Terminal]' : ''} %= %f%*%m"
+-- vim.opt.statusline = "%{mode() == 'n' ? '[Normal]' : mode() == 'i' ? '[Insert]' : mode() == 'v' ? '[Visual]' : mode() == 'c' ? '[Command]' : mode() == 't' ? '[Terminal]' : ''} %= %f%*%m"
+vim.opt.statusline = "~ %f%*%m %= [%l,%c]"
 vim.opt.tabline = "%f%*%m"

@@ -77,5 +77,5 @@ local function show_diagnostics()
         underline = true,
     })
 end
-vim.keymap.set("n", "<leader>dh", hide_diagnostics, {noremap = true, silent = true, desc = "Hide diagnostics"})
-vim.keymap.set("n", "<leader>ds", show_diagnostics, {noremap = true, silent = true, desc = "Show diagnostics"})
+vim.keymap.set("n", "<leader>hd", hide_diagnostics, {noremap = true, silent = true, desc = "Hide diagnostics"})
+vim.keymap.set("n", "<leader>sd", show_diagnostics, {noremap = true, silent = true, desc = "Show diagnostics"})

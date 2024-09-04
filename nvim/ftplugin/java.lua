@@ -3,6 +3,14 @@ local workspace_dir = vim.fn.stdpath('data') .. '/site/java/workspace-root/' .. 
 
 local jdtls_path = require("mason-registry").get_package("jdtls"):get_install_path()
 
+-- This bundles definition is the same as in the previous section (java-debug installation)
+local bundles = {
+    vim.fn.glob(vim.fn.stdpath("data") .. "/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1),
+};
+
+-- This is the new part
+vim.list_extend(bundles, vim.split(vim.fn.glob(vim.fn.stdpath("data") .. "/vscode-java-test/server/*.jar", 1), "\n"))
+
 local config = {
     -- Set the command that starts the JDTLS language ser
     cmd = {
@@ -193,7 +201,7 @@ local config = {
         extendedClientCapabilities = require("jdtls").extendedClientCapabilities,
 
         -- References the bundles defined above to support Debugging and Unit Testing
-        -- bundles = bundles
+        bundles = bundles,
     },
 
     flags = {
