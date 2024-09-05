@@ -173,7 +173,8 @@ return {
                         -- remove duplicate
                         -- vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 }
                         -- Kind icons
-                        vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+                        -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+                        vim_item.kind = string.format('%s', vim_item.kind)
                         -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
                         -- Source
                         vim_item.menu = ({

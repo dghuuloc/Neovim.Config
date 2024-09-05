@@ -66,14 +66,14 @@ return {
         -- Add dap configurations based on your language/adapter settings
         dap.configurations = {
             -- configurations for Java languages
-            java = {
-                {
-                    type = "java",
-                    name = "Debug",
-                    request = "launch",
-                    program = "${file}",
-                },
-            },
+            -- java = {
+            --     {
+            --         type = "java",
+            --         name = "Debug",
+            --         request = "launch",
+            --         program = "${file}",
+            --     },
+            -- },
 
             -- configurations for other languages
         }

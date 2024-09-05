@@ -12,17 +12,14 @@ local bundles = {
 vim.list_extend(bundles, vim.split(vim.fn.glob(vim.fn.stdpath("data") .. "/vscode-java-test/server/*.jar", 1), "\n"))
 
 local config = {
-    -- Set the command that starts the JDTLS language ser
+    -- Set the command that starts the JDTLS language server
     cmd = {
-        -- "C:\\Program Files\\Java\\jdk-1.8\\bin\\java",
         "java",                                                                         -- or "C:\\Program Files\\Java\\jdk-17\\bin\\java" 
         "-Declipse.application=org.eclipse.jdt.ls.core.id1",
         "-Dosgi.bundles.defaultStartLevel=4",
         "-Declipse.product=org.eclipse.jdt.ls.core.product",
         "-Dlog.protocol=true",
         "-Dlog.level=ALL",
-        -- "-Xms512m",
-        -- "-Xmx2048m",
         "-javaagent:" .. jdtls_path .. "/lombok.jar",
         "-Xms1g",
         "--add-modules=ALL-SYSTEM",
@@ -197,27 +194,84 @@ local config = {
 
     -- Create a table called init_options to pass the bundles with debug and testing jar, along with the extended client capablies to the start or attach function of JDTLS
     init_options = {
+        -- References the bundles defined above to support Debugging and Unit Testing
+        bundles = bundles,
+
         -- https://github.com/eclipse/eclipse.jdt.ls/wiki/Language-Server-Settings-&-Capabilities#extended-client-capabilities
         extendedClientCapabilities = require("jdtls").extendedClientCapabilities,
 
-        -- References the bundles defined above to support Debugging and Unit Testing
-        bundles = bundles,
     },
 
-    flags = {
-        allow_incremental_sync = true,
-    },
+    -- Function that will be ran once the language server is attached
+    on_attach = function()
+        -- [ Map the Java specific key mappings once the server is attached ]
+        -- Allow yourself to run JdtCompile as a Vim command
+        vim.cmd("command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)")
+        -- Allow yourself/register to run JdtUpdateConfig as a Vim command
+        vim.cmd("command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()")
+        -- Allow yourself/register to run JdtBytecode as a Vim command
+        vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
+        -- Allow yourself/register to run JdtShell as a Vim command
+        vim.cmd("command! -buffer JdtJshell lua require('jdtls').jshell()")
+
+        -- Set a Vim motion to <Space> + <Shift>J + o to organize imports in normal mode
+        vim.keymap.set('n', '<leader>Jo', "<Cmd> lua require('jdtls').organize_imports()<CR>",
+            { desc = "[J]ava [O]rganize Imports" })
+        -- Set a Vim motion to <Space> + <Shift>J + v to extract the code under the cursor to a variable
+        vim.keymap.set('n', '<leader>Jv', "<Cmd> lua require('jdtls').extract_variable()<CR>",
+            { desc = "[J]ava Extract [V]ariable" })
+        -- Set a Vim motion to <Space> + <Shift>J + v to extract the code selected in visual mode to a variable
+        vim.keymap.set('v', '<leader>Jv', "<Esc><Cmd> lua require('jdtls').extract_variable(true)<CR>",
+            { desc = "[J]ava Extract [V]ariable" })
+        -- Set a Vim motion to <Space> + <Shift>J + <Shift>C to extract the code under the cursor to a static variable
+        vim.keymap.set('n', '<leader>JC', "<Cmd> lua require('jdtls').extract_constant()<CR>",
+            { desc = "[J]ava Extract [C]onstant" })
+        -- Set a Vim motion to <Space> + <Shift>J + <Shift>C to extract the code selected in visual mode to a static variable
+        vim.keymap.set('v', '<leader>JC', "<Esc><Cmd> lua require('jdtls').extract_constant(true)<CR>",
+            { desc = "[J]ava Extract [C]onstant" })
+        -- Set a Vim motion to <Space> + <Shift>J + t to run the test method currently under the cursor
+        vim.keymap.set('n', '<leader>Jt', "<Cmd> lua require('jdtls').test_nearest_method()<CR>",
+            { desc = "[J]ava [T]est Method" })
+        -- Set a Vim motion to <Space> + <Shift>J + t to run the test method that is currently selected in visual mode
+        vim.keymap.set('v', '<leader>Jt', "<Esc><Cmd> lua require('jdtls').test_nearest_method(true)<CR>",
+            { desc = "[J]ava [T]est Method" })
+        -- Set a Vim motion to <Space> + <Shift>J + <Shift>T to run an entire test suite (class)
+        vim.keymap.set('n', '<leader>JT', "<Cmd> lua require('jdtls').test_class()<CR>", { desc = "[J]ava [T]est Class" })
+        -- Set a Vim motion to <Space> + <Shift>J + u to update the project configuration
+        vim.keymap.set('n', '<leader>Ju', "<Cmd> JdtUpdateConfig<CR>", { desc = "[J]ava [U]pdate Config" })
+
+        -- [ Setup the java debug adapter of the JDTLS server ]
+        require('jdtls.dap').setup_dap()
+
+        -- Find the main method(s) of the application so the debug adapter can successfully start up the application
+        -- Sometimes this will randomly fail if language server takes to long to startup for the project, if a ClassDefNotFoundException occurs when running
+        -- the debug tool, attempt to run the debug tool while in the main class of the application, or restart the neovim instance
+        -- Unfortunately I have not found an elegant way to ensure this works 100%
+        require('jdtls.dap').setup_dap_main_class_configs()
+        -- Enable jdtls commands to be used in Neovim
+        require 'jdtls.setup'.add_commands()
+
+        -- Refresh the codelens
+        -- Code lens enables features such as code reference counts, implemenation counts, and more.
+        -- vim.lsp.codelens.refresh()
+
+        -- Setup a function that automatically runs every time a java file is saved to refresh the code lens
+        -- vim.api.nvim_create_autocmd("BufWritePost", {
+        --     pattern = { "*.java" },
+        --     callback = function()
+        --         local _, _ = pcall(vim.lsp.codelens.refresh)
+        --     end
+        -- })
+
+    end,
+
+    -- flags = {
+    --     allow_incremental_sync = true,
+    -- },
 
 }
 
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`
 require('jdtls').start_or_attach(config)
-
-vim.keymap.set('n', '<leader>co', "<Cmd>lua require'jdtls'.organize_imports()<CR>", { desc = 'Organize Imports' })
-vim.keymap.set('n', '<leader>crv', "<Cmd>lua require('jdtls').extract_variable()<CR>", { desc = 'Extract Variable' })
-vim.keymap.set('v', '<leader>crv', "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", { desc = 'Extract Variable' })
-vim.keymap.set('n', '<leader>crc', "<Cmd>lua require('jdtls').extract_constant()<CR>", { desc = 'Extract Constant' })
-vim.keymap.set('v', '<leader>crc', "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", { desc = 'Extract Constant' })
-vim.keymap.set('v', '<leader>crm', "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", { desc = 'Extract Method' })
 

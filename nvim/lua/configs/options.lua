@@ -89,5 +89,5 @@ vim.cmd [[set iskeyword+=-]]
 -- Statusline
 -- vim.opt.statusline = "%{mode() == 'n' ? '[Normal]' : mode() == 'i' ? '[Insert]' : mode() == 'v' ? '[Visual]' : mode() == 'c' ? '[Command]' : mode() == 't' ? '[Terminal]' : ''} ~ %f%*%m %= %y[%l,%c]"
 -- vim.opt.statusline = "%{mode() == 'n' ? '[Normal]' : mode() == 'i' ? '[Insert]' : mode() == 'v' ? '[Visual]' : mode() == 'c' ? '[Command]' : mode() == 't' ? '[Terminal]' : ''} %= %f%*%m"
-vim.opt.statusline = "~ %f%*%m %= [%l,%c]"
+vim.opt.statusline = "%f%*%m %= [%l,%c]"
 vim.opt.tabline = "%f%*%m"

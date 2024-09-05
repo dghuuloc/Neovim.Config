@@ -7,7 +7,6 @@ return {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
             "hrsh7th/cmp-nvim-lsp",
-            "j-hui/fidget.nvim",
         },
 
         config = function()
@@ -25,7 +24,6 @@ return {
                 vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
             end
 
-            require("fidget").setup({})
             require("mason").setup({
                 ui = {
                     icons = {
@@ -113,11 +111,6 @@ return {
     {
         "mfussenegger/nvim-jdtls",
         event = "BufRead",
-        dependencies = {
-            "mfussenegger/nvim-dap",
-            "rcarriga/nvim-dap-ui",
-        },
-
     },
 
 }
