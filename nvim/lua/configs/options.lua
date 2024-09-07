@@ -1,7 +1,6 @@
 ----------------------------------------------------------------------------------------------------------------
 --  lua/  configs/ 󰢱 options.lua
 ----------------------------------------------------------------------------------------------------------------
-
 -- language
 vim.api.nvim_exec('language en_US', true)
 
@@ -12,16 +11,15 @@ local options = {
     cmdheight = 1,                           -- more space in the neovim command line for displaying messages
     completeopt = { "menuone", "noselect" }, -- mostly just for cmp
     conceallevel = 0,                        -- so that `` is visible in markdown files
-    fileencoding = "utf-8",                  -- the encoding written to a file
-    encoding = "utf-8",                      -- the encoding written to a file
+    fileencoding = "UTF-8",                  -- the encoding written to a file
+    encoding = "UTF-8",                      -- the encoding written to a file
     hidden = true,                           -- required to keep multiple buffers and open multiple buffers
     hlsearch = true,                         -- highlight all matches on previous search pattern
     ignorecase = true,                       -- ignore case in search patterns
     mouse = "a",                             -- allow the mouse to be used in neovim
     -- pumheight = 10,                          -- pop up menu height
-    showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
+    showmode = false,                        -- we don't need to see things like -- INSERT -- anymore from command 
     showtabline = 1,                         -- always show tabs
-    -- winbar = '%=%m %F',
     smartcase = true,                        -- smart case
     smartindent = false,                     -- make indenting smarter again
     autoindent = true,                       -- copy indent from current line when starting new one
@@ -46,17 +44,16 @@ local options = {
     scrolloff = 8,                           -- is one of my fav
     sidescrolloff = 8,
     guifont = "monospace:h17",               -- the font used in graphical neovim applications
-
 }
 
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.opt.shortmess:append "c"
-vim.opt.formatoptions:remove('c');
-vim.opt.formatoptions:remove('r');
-vim.opt.formatoptions:remove('o');
+-- vim.opt.shortmess:append "c"
+-- vim.opt.formatoptions:remove('c');
+-- vim.opt.formatoptions:remove('r');
+-- vim.opt.formatoptions:remove('o');
 
 -- [[ Fillchars ]]
 -- vim.opt.fillchars:append('stl: ');
@@ -68,26 +65,17 @@ vim.opt.formatoptions:remove('o');
 
 -- [[ File Explore with NetRW Settings ]]
 -- Disable netrw
-vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
 
--- olors
+-- Colors
 vim.g.t_co = 256
 vim.opt.termguicolors = true
-
--- map close parenthesis in neovim
--- vim.api.nvim_set_keymap('i', '"', '""<left>', {silent = true, noremap = true})
--- vim.api.nvim_set_keymap('i', "'", "''<left>", {silent = true, noremap = true})
--- vim.api.nvim_set_keymap('i', '(', '()<left>', {silent = true, noremap = true})
--- vim.api.nvim_set_keymap('i', '<', '<><left>', {silent = true, noremap = true})
--- vim.api.nvim_set_keymap('i', '[', '[]<left>', {silent = true, noremap = true})
--- vim.api.nvim_set_keymap('i', '{', '{}<left>', {silent = true, noremap = true})
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 
 -- Statusline
+vim.opt.statusline = "%f%* %m %= [%l,%c]"
 -- vim.opt.statusline = "%{mode() == 'n' ? '[Normal]' : mode() == 'i' ? '[Insert]' : mode() == 'v' ? '[Visual]' : mode() == 'c' ? '[Command]' : mode() == 't' ? '[Terminal]' : ''} ~ %f%*%m %= %y[%l,%c]"
--- vim.opt.statusline = "%{mode() == 'n' ? '[Normal]' : mode() == 'i' ? '[Insert]' : mode() == 'v' ? '[Visual]' : mode() == 'c' ? '[Command]' : mode() == 't' ? '[Terminal]' : ''} %= %f%*%m"
-vim.opt.statusline = "%f%*%m %= [%l,%c]"
-vim.opt.tabline = "%f%*%m"
+-- vim.opt.tabline = "%F%%m"

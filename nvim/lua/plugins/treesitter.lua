@@ -12,25 +12,11 @@ return {
         treesitter.setup({
             -- make sure we have vim, vimdoc, lua, java, javascript, typescript, html, css, json, tsx, markdown, markdown, inline markdown and gitignore highlighting servers
             ensure_installed = {
-                "vim",
                 "vimdoc",
                 "lua",
                 "java",
                 "javascript",
                 "typescript",
-                "html",
-                "css",
-                "json",
-                "tsx",
-                "markdown",
-                "markdown_inline",
-                "gitignore",
-                "yaml",
-                "svelte",
-                "graphql",
-                "bash",
-                "dockerfile",
-                "query",
                 "c"
             },
 

@@ -72,12 +72,12 @@ local config = {
                 }
             },
 
-            -- project = {
-            -- 	referencedLibraries = {
-            -- 		-- "**/lib/*.jar",
-            --         "lib/**/*.jar",
-            -- 	},
-            -- },
+            -- specify the dependencies
+            project = {
+            	referencedLibraries = {
+                    "lib/**/*.jar",
+            	},
+            },
 
             -- Enable downloading archives from maven automatically
             maven = {

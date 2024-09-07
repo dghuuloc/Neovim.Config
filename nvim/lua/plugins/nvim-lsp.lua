@@ -24,28 +24,19 @@ return {
                 vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
             end
 
-            require("mason").setup({
-                ui = {
-                    icons = {
-                        package_installed = "✓",
-                        package_pending = "➜",
-                        package_uninstalled = "✗",
-                    },
-                },
-            })
-
+            require("mason").setup()
             require("mason-lspconfig").setup({
                 -- install language server_name
                 ensure_installed = {
-                    "jdtls",            -- support for Java Language
-                    "pyright",          -- support for Python
-                    "tsserver",         -- support for JavaScript, TypeScript and React
-                    "lua_ls",           -- support for Lua
-                    "eslint",           -- lints JavaScript and TypeScript files
-                    "jsonls",           -- support for Json file
-                    "html",             -- support for HTML file
-                    "cssls",            -- support for CSS file
-                    "emmet_ls"          -- support for HTML, CSS, Sass, SCSS and extended JavaScript files (JSX,TSX)
+                    "jdtls",                    -- support for Java Language
+                    "pyright",                  -- support for Python
+                    "tsserver",                 -- support for JavaScript, TypeScript and React
+                    "lua_ls",                   -- support for Lua
+                    "eslint",                   -- support for JavaScript and TypeScript files
+                    "jsonls",                   -- support for Json file
+                    "html",                     -- support for HTML file
+                    "cssls",                    -- support for CSS file
+                    "emmet_ls"                  -- support for HTML, CSS, Sass, SCSS and extended JavaScript files (JSX,TSX)
                 },
 
                 handlers = {
@@ -102,7 +93,7 @@ return {
         config = function()
             -- ensure the java debug adapter is installed
             require("mason-nvim-dap").setup({
-                ensure_installed = { "java-debug", "vscode-java-test", "java-test" }
+                ensure_installed = { "vscode-java-test", "java-test" }
             })
         end
     },
