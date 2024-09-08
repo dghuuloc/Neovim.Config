@@ -62,6 +62,20 @@ return {
                         }
                     end,
 
+                    -- Lua Language Server Configuration
+                    ["tsserver"] = function()
+                        require("lspconfig").ts_ls.setup {
+                            capabilities = capabilities,
+                            settings = {
+                                completions = {
+                                    completeFunctionCalls = true,
+                                }
+
+                            }
+                        }
+                    end,
+
+
                     -- Java Language Server Configuration
                     ["jdtls"] = function()
                         require("lspconfig").jdtls.setup {
@@ -84,17 +98,6 @@ return {
             --     },
             -- })
 
-        end
-    },
-
-    -- mason nvim dap utilizes mason to automatically ensure debug adapters you want installed are installed, mason-lspconfig will not automatically install debug adapters for us
-    {
-        "jay-babu/mason-nvim-dap.nvim",
-        config = function()
-            -- ensure the java debug adapter is installed
-            require("mason-nvim-dap").setup({
-                ensure_installed = { "vscode-java-test", "java-test" }
-            })
         end
     },
 
