@@ -11,7 +11,7 @@ return {
             {
                 "L3MON4D3/LuaSnip",
                 -- follow latest release.
-                version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+                version = "v2.*",
                 -- install jsregexp (optional!).
                 build = "make install_jsregexp",
 
@@ -24,8 +24,7 @@ return {
             "rafamadriz/friendly-snippets",
             -- cmdline based completion options
             "hrsh7th/cmp-cmdline",
-            -- Adds vscode-like pictograms
-            "onsails/lspkind.nvim",
+
         },
         config = function()
             -- Gain access to the functions of the cmp plugin
@@ -33,8 +32,6 @@ return {
 
             -- Lazily load the vscode like snippets
             require("luasnip.loaders.from_vscode").lazy_load()
-
-            -- local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
             cmp.setup({
                 completion = {
@@ -57,26 +54,6 @@ return {
                     documentation = cmp.config.window.bordered(),
                 },
 
-                -- setup how we interact with completion menus and options
-                -- mapping = cmp.mapping.preset.insert({
-                --     -- previous suggestion
-                --     ["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
-                --     -- next suggestion
-                --     ["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
-                --     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-                --     ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                --     -- show completion suggestions
-                --     ["<C-Space"] = cmp.mapping.complete(),
-                --     -- close completion window
-                --     ["<C-e>"] = cmp.mapping.abort(),
-                --     -- confirm completion, only when you explicitly selected an option
-                --     ["<CR>"] = cmp.mapping.confirm({
-                --         -- behavior = cmp.ConfirmBehavior.Replace,
-                --         select = true,
-                --         -- select = false
-                --     })
-                -- }),
-
                 mapping = cmp.mapping.preset.insert({
                     ["<C-j>"] = cmp.mapping.select_next_item(),         -- next suggestion
                     ["<C-k>"] = cmp.mapping.select_prev_item(),         -- previous suggestion
@@ -88,24 +65,6 @@ return {
                         -- behavior = cmp.ConfirmBehavior.Replace,
                         select = true,                                  -- Accept currently selected item.
                     }),
-                    -- ["<Tab>"] = cmp.mapping(function(fallback)
-                    --     if cmp.visible() then
-                    --         cmp.select_next_item()
-                    --     elseif require('luasnip').expand_or_locally_jumpable() then
-                    --         require('luasnip').expand_or_jump()
-                    --     else
-                    --         fallback()
-                    --     end
-                    -- end, { "i", "s" }),
-                    -- ["<S-Tab>"] = cmp.mapping(function(fallback)
-                    --     if cmp.visible() then
-                    --         cmp.select_prev_item()
-                    --     elseif require('luasnip').locally_jumpable(-1) then
-                    --         require('luasnip').jump(-1)
-                    --     else
-                    --         fallback()
-                    --     end
-                    -- end, { "i", "s" }),
                 }),
 
                 -- Where and how should cmp rank and find completions
@@ -120,34 +79,9 @@ return {
                 }),
 
                 formatting = {
-                    -- format = function (entry, vim_item)
-                    --     local lspkind_ok, lspkind = pcall(require, "lspkind")
-                    --
-                    --     if not lspkind_ok then
-                    --         -- From kind_icons array
-                    --         vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-                    --
-                    --         -- Source
-                    --         vim_item.menu = ({
-                    --             nvim_lsp = "[LSP]",
-                    --             nvim_lua = "[Lua]",
-                    --             luasnip = "[LuaSnip]",
-                    --             buffer = "[Buffer]",
-                    --         })[entry.source.name]
-                    --         return vim_item
-                    --     else
-                    --         -- From lspkind
-                    --         return lspkind.cmp_format()(entry, vim_item)
-                    --     end
-                    -- end
-
                     format = function(entry, vim_item)
-                        -- remove duplicate
-                        -- vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 }
-                        -- Kind icons
-                        -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
                         vim_item.kind = string.format('%s', vim_item.kind)
-                        -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+
                         -- Source
                         vim_item.menu = ({
                             nvim_lsp = "[LSP]",
@@ -159,7 +93,6 @@ return {
                         return vim_item
 
                     end
-
                 }
             })
 
