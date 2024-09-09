@@ -21,5 +21,13 @@ if exists("syntax_on")
 endif
 
 let g:colors_name = "mpadscol"
+set t_Co=256
+set cursorline
 
-" highlight Normal    guifg=#e0e0e0 guibg=#000000	ctermfg=gray ctermbg=black
+highlight Normal    guifg=#e0e0e0 guibg=#111111	ctermfg=gray ctermbg=black
+highlight Comment   gui=italic cterm=italic
+highlight Constant  guifg=#de935f guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+highlight String    guifg=#698b69 ctermfg=114 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+highlight Keyword   guifg=#b294bb  guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+highlight Identifier guifg=#e0e0e0 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+highlight Function  guifg=#81a2be ctermfg=180 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE

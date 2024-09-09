@@ -30,7 +30,7 @@ return {
                 ensure_installed = {
                     "jdtls",                    -- support for Java Language
                     "pyright",                  -- support for Python
-                    "tsserver",                 -- support for JavaScript, TypeScript and React
+                    "ts_ls",                    -- support for JavaScript, TypeScript and React
                     "lua_ls",                   -- support for Lua
                     "eslint",                   -- support for JavaScript and TypeScript files
                     "jsonls",                   -- support for Json file
@@ -63,7 +63,7 @@ return {
                     end,
 
                     -- Lua Language Server Configuration
-                    ["tsserver"] = function()
+                    ["ts_ls"] = function()
                         require("lspconfig").ts_ls.setup {
                             capabilities = capabilities,
                             settings = {
