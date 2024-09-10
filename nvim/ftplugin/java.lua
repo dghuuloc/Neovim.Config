@@ -27,13 +27,9 @@ local config = {
         "java.base/java.util=ALL-UNNAMED",
         "--add-opens",
         "java.base/java.lang=ALL-UNNAMED",
-        "-jar",
-        vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),       -- Eclipse jdtls location
-        "-configuration",
-        jdtls_path .. "/config_win",                                                    -- for your OS (config_linux, config_mac, config_win, etc)
-        "-data",
-        workspace_dir,
-
+        "-jar", vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),       -- Eclipse jdtls location
+        "-configuration", jdtls_path .. "/config_win",                                          -- for your OS (config_linux, config_mac, config_win, etc)
+        "-data", workspace_dir,                                                                 -- to create .metatdata into workspace_dir
 	},
 
     root_dir = vim.fs.dirname(
@@ -73,11 +69,11 @@ local config = {
             },
 
             -- specify the dependencies
-            project = {
-            	referencedLibraries = {
-                    "lib/**/*.jar",
-            	},
-            },
+            -- project = {
+            -- 	referencedLibraries = {
+            --         "lib/**/*.jar",
+            -- 	},
+            -- },
 
             -- Enable downloading archives from maven automatically
             maven = {
