@@ -33,4 +33,7 @@ highlight String                    guifg=#698b69 ctermfg=114 guibg=NONE ctermbg
 highlight Keyword                   guifg=#b294bb  guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 highlight Identifier                guifg=#e0e0e0 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 highlight Function                  guifg=#81a2be ctermfg=180 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-highlight Statusline                guibg=#7ca8c6 ctermbg=NONE gui=NONE cterm=NONE                  "#689abd 
+" highlight Statusline                guibg=#9ea8ba ctermbg=NONE gui=NONE cterm=NONE                  "#689abd, #7ca8c6 
+highlight Statusline                guifg=#7ca8c6 guibg=#111111 ctermbg=NONE gui=italic cterm=NONE 
+
+

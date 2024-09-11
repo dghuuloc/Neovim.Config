@@ -1,4 +1,5 @@
 vim.api.nvim_exec('language en_US', true)               -- set Neovim language to English
+vim.diagnostic.disable()                                -- disable all diagnostic
 
 vim.opt.number = true                                   -- show number lines
 vim.opt.relativenumber = true                           -- enable relativenumber
