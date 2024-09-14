@@ -1,14 +1,9 @@
 vim.api.nvim_exec('language en_US', true)               -- set Neovim language to English
 vim.diagnostic.disable()                                -- disable all diagnostic
 
-vim.opt.number = true                                   -- show number lines
-vim.opt.relativenumber = true                           -- enable relativenumber
-
-vim.g.t_co = 256
-vim.opt.termguicolors = true                            -- set term gui colors (most terminals support this)
-
 vim.opt.statusline = "%f%* %m %= [%l,%c]"               -- format statusline
 vim.opt.showtabline = 1                                 -- don't show tabline
+vim.opt.tabline = "%t"
 
 vim.opt.clipboard = "unnamedplus"                       -- allows neovim to access the system clipboard
 
@@ -28,15 +23,12 @@ vim.opt.signcolumn = "yes"                              -- always show the sign 
 
 vim.opt.swapfile = false                                -- create a swapfile
 
-vim.opt.wrap = false                                    -- display lines as one long line
-
-vim.opt.showmode = false                                -- Don't show anymore like -- INSERT -- anymore from command
+vim.opt.wrap = false                                    -- display lines as one long line (default wrap = true)
 
 vim.opt.tabstop = 4                                     -- insert 4 spaces for a tab
 vim.opt.shiftwidth = 4                                  -- the number of spaces inserted for each indentation
 vim.opt.softtabstop = 4                                 -- number of spaces inserted for <Tab> key
 vim.opt.expandtab = true                                -- convert tabs to spaces
-
 vim.opt.smartindent = true                              -- make indenting smarter again
 
 vim.opt.timeoutlen = 1000                               -- time to wait for a mapped sequence to complete (in milliseconds)

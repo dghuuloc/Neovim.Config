@@ -19,3 +19,12 @@ vim.cmd([[command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._compl
 vim.cmd([[command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()]])
 vim.cmd([[command! -buffer JdtBytecode lua require('jdtls').javap()]])
 vim.cmd([[command! -buffer JdtJshell lua require('jdtls').jshell()]])
+
+-- Prevent neovim commenting out next line after a comment line
+vim.api.nvim_create_autocmd("FileType", {
+    pattern ="*",
+    callback =function()
+        vim.opt_local.formatoptions:remove({ 'r', 'o' })
+    end,
+})
+
