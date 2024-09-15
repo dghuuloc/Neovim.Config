@@ -28,3 +28,10 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+-- Disable all diagnostic
+vim.api.nvim_create_autocmd('DiagnosticChanged', {
+  callback = function(opt)
+    vim.diagnostic.disable(opt.buf)
+  end,
+})
+
