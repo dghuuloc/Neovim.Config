@@ -29,7 +29,8 @@ return {
                     "jsonls",                   -- support for Json file
                     "html",                     -- support for HTML file
                     "cssls",                    -- support for CSS file
-                    "emmet_ls"                  -- support for HTML, CSS, Sass, SCSS and extended JavaScript files (JSX,TSX)
+                    "emmet_ls",                 -- support for HTML, CSS, Sass, SCSS and extended JavaScript files (JSX,TSX)
+                    "clangd"                    -- support for C, C++
                 },
 
                 handlers = {

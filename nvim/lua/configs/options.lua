@@ -20,6 +20,9 @@ vim.opt.hlsearch = true                                 -- highlight all matches
 vim.opt.smartcase = true
 vim.opt.ignorecase = true                               -- ignore case in search patterns
 
+vim.opt.splitbelow = true                               -- force all horizontal splits to go below current window
+vim.opt.splitright = true                               -- force all vertical splits to go to the right of current window
+
 vim.opt.swapfile = false                                -- create a swapfile
 
 vim.opt.writebackup = false                             -- it is not allowed to be edited in another program

@@ -75,14 +75,13 @@ return {
                     { name = "luasnip" },       -- snippets
                     { name = "buffer" },        -- text within current buffer
                     { name = "path" },          -- file system paths
-                    -- { name = 'cmdline' },
                 }),
 
                 formatting = {
                     format = function(entry, vim_item)
                         vim_item.kind = string.format('%s', vim_item.kind)
 
-                        -- Source
+                        -- Set a name for each source 
                         vim_item.menu = ({
                             nvim_lsp = "[LSP]",
                             nvim_lua = "[Lua]",
@@ -90,10 +89,19 @@ return {
                             buffer = "[Buffer]",
                             path = "[Path]",
                         })[entry.source.name]
-                        return vim_item
 
+                        -- Remove duplicates from the sources 
+                        vim_item.dup = ({
+                            nvim_lsp = 0,
+                            nvim_lua = 0,
+                            luasnip = 0,
+                            buffer = 0,
+                            path = 0,
+                        })[entry.source.name] or 0
+
+                        return vim_item
                     end
-                }
+                },
             })
 
             -- `/` cmdline setup.
