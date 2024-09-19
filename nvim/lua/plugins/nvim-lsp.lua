@@ -72,7 +72,8 @@ return {
                     -- Java Language Server Configuration
                     ["jdtls"] = function()
                         require("lspconfig").jdtls.setup {
-                            capabilities = capabilities
+                            capabilities = capabilities,
+                            --on_attach = on_attach
                         }
                     end,
 
