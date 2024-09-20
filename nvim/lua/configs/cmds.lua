@@ -97,21 +97,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- :LspDocumentSymbol - Gets all the symbols for the current buffer
         vim.keymap.set('n', 'gds', vim.lsp.buf.document_symbol, opts)
 
-        -- :LspAddWorkspaceFolder {dir} - Adds a workspace folder to the list of workspace folders. If {dir} is ommitted, prompts the user for one.
-        vim.keymap.set('n', 'gwa', vim.lsp.buf.add_workspace_folder, opts)
-        -- :LspRemoveWorkspaceFolder {dir} - Removes a workspace folder from the list of workspace folders. If {dir} is ommitted, prompts the user for one.
-        vim.keymap.set('n', 'gwr', vim.lsp.buf.remove_workspace_folder, opts)
-        -- :LspListWorkspaceFolders - Displays all the current workspace folders
-        vim.keymap.set('n', 'gwl', function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, opts)
-
-        -- :LspIncomingCalls - Gets all the call sites of the symbol under the cursor
-        vim.keymap.set('n', 'gbc', vim.lsp.buf.incoming_calls, opts)
-
-        -- :LspOutgoingCalls - Gets all the items that are called by the symbol under the cursor
-        vim.keymap.set('n', 'gbo', vim.lsp.buf.outgoing_calls, opts)
-
-
     end,
 })
