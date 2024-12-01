@@ -1,6 +1,8 @@
---vim.opt.statusline = "%f%* %m %= [%l,%c]"               -- format statusline
+--vim.opt.statusline = "%f%* %m %= [%l,%c]"             -- format statusline
 vim.opt.showtabline = 1                                 -- don't show tabline
 vim.opt.tabline = "%t"                                  -- format tabline
+
+vim.opt.number = true                                   -- set numbered lines
 
 vim.opt.clipboard = "unnamedplus"                       -- allows neovim to access the system clipboard
 

@@ -15,8 +15,6 @@ return {
                 "vimdoc",
                 "lua",
                 "java",
-                "javascript",
-                "typescript",
                 "c"
             },
 

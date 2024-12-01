@@ -2,9 +2,9 @@
 require("configs.options")
 
 -- Load the keymaps from the config/keymaps.lua file
-require("configs.mappings")
+require("configs.keymaps")
 
--- Load the auto commands from the config/autocmds.lua file
+-- Load the auto commands from the config/cmds.lua file
 require("configs.cmds")
 
 ----------------------------------------------------------------------------------------------------------------

@@ -83,8 +83,21 @@ return {
         }
 
         dap.configurations = {
-            -- Configurations for other languages
+            -- Configurations for C languages
             c = {
+                { name = "Launch file", type = "cppdbg",
+                    request = "launch",
+                    program = function()
+                      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '\\', 'file')
+                    end,
+                    cwd = '${workspaceFolder}',
+                    stopAtEntry = true,
+                },
+
+            },
+
+            -- Configurations for C++ languages
+            cpp = {
                 { name = "Launch file", type = "cppdbg",
                     request = "launch",
                     program = function()
