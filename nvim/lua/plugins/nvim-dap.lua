@@ -83,6 +83,17 @@ return {
         }
 
         dap.configurations = {
+            -- Configurations for Java languages
+            java = {
+                {
+                    type = "java",
+                    request = "attach",
+                    name = "Attach to the process",
+                    hostName = "localhost",
+                    port = "8000"
+                }
+            },
+
             -- Configurations for C languages
             c = {
                 { name = "Launch file", type = "cppdbg",
@@ -120,6 +131,7 @@ return {
                 }
         
             },
+
 
         }
 
