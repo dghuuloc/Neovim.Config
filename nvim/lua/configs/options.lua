@@ -2,7 +2,8 @@
 vim.opt.showtabline = 1                                 -- don't show tabline
 vim.opt.tabline = "%t"                                  -- format tabline
 
-vim.opt.number = true                                   -- set numbered lines
+vim.opt.number = true                                   -- Show numbers on the left
+vim.opt.relativenumber = true                           -- Its better for using motions with number of lines
 
 vim.opt.clipboard = "unnamedplus"                       -- allows neovim to access the system clipboard
 
@@ -30,3 +31,4 @@ vim.opt.swapfile = false                                -- create a swapfile
 vim.opt.writebackup = false                             -- it is not allowed to be edited in another program
 
 vim.opt.updatetime = 50                                 -- faster completion
+
