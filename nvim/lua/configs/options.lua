@@ -2,8 +2,8 @@
 vim.opt.showtabline = 1                                 -- don't show tabline
 vim.opt.tabline = "%t"                                  -- format tabline
 
-vim.opt.number = true                                   -- Show numbers on the left
-vim.opt.relativenumber = true                           -- Its better for using motions with number of lines
+vim.opt.number = true                                   -- show numbers on the left
+vim.opt.relativenumber = true                           -- shows lines numbers starting from the current one.
 
 vim.opt.clipboard = "unnamedplus"                       -- allows neovim to access the system clipboard
 

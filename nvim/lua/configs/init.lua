@@ -43,8 +43,11 @@ end
 lazy.setup({
 	-- import/override with your plugins	
 	spec = {
-    		-- Tell lazy that all plugin specs are found in the plugins directory
-            { import = "plugins" },
+        -- Tell lazy that all plugin specs are found in the plugins directory
+        { import = "plugins" },
+
+        -- Add more plugins without configuration
+        { "nvim-lua/plenary.nvim" },
   	},
 
 	-- Declare a few options for lazy
