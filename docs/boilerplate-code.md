@@ -30,7 +30,7 @@ run:
 
 ---
 ### How to create makefile for executing Maven Project
-```
+```makefile
 create:
 	mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-archetype
 
