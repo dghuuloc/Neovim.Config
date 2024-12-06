@@ -7,14 +7,26 @@ return {
         vim.g.loaded_netrwPlugin = 1
         
         local HEIGHT_RATIO = 0.8 
-        local WIDTH_RATIO = 0.5
+        local WIDTH_RATIO = 0.6
 
         require("nvim-tree").setup({
             disable_netrw = true,
             hijack_netrw = true,
             respect_buf_cwd = true,
             sync_root_with_cwd = true,
-            
+
+            renderer = {
+                root_folder_modifier = "%f",
+                group_empty = true,
+            },
+
+            update_focused_file = {
+                enable = true,
+                update_root = {
+                    enable = true,
+                }
+            },
+
             view = {
                 relativenumber = false,
                 number = false,
