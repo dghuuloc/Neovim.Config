@@ -13,23 +13,22 @@
 - [fzf](https://github.com/junegunn/fzf)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 
-
 ## Recommended Fonts
-- Choose one of the [Nerd Fonts](https://www.nerdfonts.com/font-downloads)
-- Here, I'm using JetBrainsMono Nerd Font for Windows Terminal Settings
+__A [Nerd Fonts](https://www.nerdfonts.com/font-downloads) is required to see all the icons inside neovim. Here, I'm using JetBrainsMono Nerd Font for Windows Terminal Settings__
 ```
 Color scheme:        One Half Dark
 Font face:           JetBrainsMonoNL Nerd Font
 Font-size:           11
 ```
-
 ## Installation 
-- __Linux__
+- __To install on Linux/Mac, open terminal and then run the command below__
 ```shell
 git clone --recursive https://github.com/dghuuloc/Neovim.Config.git ~/.config/nvim
+rm -rf ~/.local/share/nvim && rm -rf ~/.config/nvim && git clone https://github.com/dghuuloc/Neovim.Config.git ~/.config/nvim
 ```
 - __Windows__
 ```shell
 git clone --recursive https://github.com/dghuuloc/Neovim.Config.git $env:LOCALAPPDATA/nvim
+rmdir /S /Q %homepath%\appdata\local\nvim-data & rmdir /S /Q %homepath%\appdata\local\nvim & git clone https://github.com/dghuuloc/Neovim.Config.git %homepath%\appdata\local\nvim
 ```
 
