@@ -24,11 +24,11 @@ Font-size:           11
 ```
 
 ## Installation 
-### Linux
+- __Linux__
 ```shell
 git clone --recursive https://github.com/dghuuloc/Neovim.Config.git ~/.config/nvim
 ```
-### Windows
+- __Windows__
 ```shell
 git clone --recursive https://github.com/dghuuloc/Neovim.Config.git $env:LOCALAPPDATA/nvim
 ```
