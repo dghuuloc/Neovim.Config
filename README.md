@@ -16,9 +16,9 @@ $ pacman -Su
 $ pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
 ```
 - Setup `make`
-- [fd](https://github.com/sharkdp/fd)
-- [fzf](https://github.com/junegunn/fzf)
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [fd](https://github.com/sharkdp/fd) - is a program to find entries in your filesystem
+- [fzf](https://github.com/junegunn/fzf) - is a general-purpose command-line fuzzy finder
+- [ripgrep](https://github.com/BurntSushi/ripgrep) - is a line-oriented search tool that recursively searches the current directory for a regex pattern.
 
 __Optional Install:__
 - [jq](https://jqlang.github.io/jq/download/) - is a lightweight and flexible command-line JSON processor
