@@ -18,7 +18,9 @@ $ pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
 - [fd](https://github.com/sharkdp/fd)
 - [fzf](https://github.com/junegunn/fzf)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [jq](https://jqlang.github.io/jq/download/)
+
+__Optional Install:__
+- [jq](https://jqlang.github.io/jq/download/) - is a lightweight and flexible command-line JSON processor
 
 ## Recommended Fonts
 __A [Nerd Fonts](https://www.nerdfonts.com/font-downloads) is required to see all the icons inside neovim. Here, I'm using JetBrainsMono Nerd Font for Windows Terminal Settings__
