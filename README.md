@@ -9,7 +9,7 @@
 ## Prerequisites
 - [Neovim](https://github.com/neovim/neovim) ≥ v0.10.0
 - [git](https://git-scm.com/)
-- Install [MSYS2](https://www.msys2.org/) - A C compiler is required to compile the parsers needed for nvim-treesitter and so on.
+- Install [MSYS2](https://www.msys2.org/) - A C compiler is required to compile the parsers needed for nvim-treesitter and so on. Find out more at [here](https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support)
 ```shell
 $ pacman -Syu
 $ pacman -Su
