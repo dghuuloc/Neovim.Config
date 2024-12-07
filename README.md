@@ -6,4 +6,8 @@
 </p>
 
 ---
-## Requirements
+## Prerequisites
+
+
+## Recommended Fonts
+- Choose one of the [Nerd Fonts](https://www.nerdfonts.com/font-downloads)
