@@ -8,6 +8,12 @@
 ---
 ## Prerequisites
 - [Neovim](https://github.com/neovim/neovim) ≥ v0.10.0
+- Install [MSYS2](https://www.msys2.org/)
+```shell
+$ pacman -Syu
+$ pacman -Su
+$ pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
+```
 - [git](https://git-scm.com/)
 - [fd](https://github.com/sharkdp/fd)
 - [fzf](https://github.com/junegunn/fzf)
