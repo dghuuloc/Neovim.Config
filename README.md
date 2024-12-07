@@ -1,4 +1,4 @@
-# <div align="center">Configuring Neovim with Lua</div>
+# <div align="center">Neovim Configs</div>
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <p align="center">
   <img width="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Vimlogo.svg/1200px-Vimlogo.svg.png" alt="Vim Logo">
