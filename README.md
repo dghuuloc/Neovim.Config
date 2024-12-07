@@ -22,17 +22,7 @@ $ pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
 
 __Optional Install:__
 - [jq](https://jqlang.github.io/jq/download/) - is a lightweight and flexible command-line JSON processor
-
-__For Java Development:__
-- Debugger (via nvim-dap)
-  - Clone [java-debug](https://github.com/microsoft/java-debug) server for Debug applications via explicit configurations and Debug automatically discovered main classes
-  ```
-  https://github.com/microsoft/java-debug.git
-  ```
-  - Clone [vscode-java-test](https://github.com/microsoft/vscode-java-test) for Debug junit tests. Either whole classes or individual test methods
-  ```
-  https://github.com/microsoft/vscode-java-test.git
-  ```
+- [xmllint](https://gist.github.com/cbmeeks/8317048) - Fast Tool to Format, Beautify, and Validate XML
 
 ## Recommended Fonts
 __A [Nerd Fonts](https://www.nerdfonts.com/font-downloads) is required to see all the icons inside neovim. Here, I'm using JetBrainsMono Nerd Font for Windows Terminal Settings__
