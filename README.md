@@ -7,8 +7,8 @@
 
 ---
 ## Prerequisites
-- [git](https://git-scm.com/)
 - [Neovim](https://github.com/neovim/neovim) ≥ v0.10.0
+- [git](https://git-scm.com/)
 - [fd](https://github.com/sharkdp/fd) (`winget install sharkdp.fd`)
 - [fzf](https://github.com/junegunn/fzf) (`brew install fzf`)
 - [ripgrep](https://github.com/BurntSushi/ripgrep) (`winget install BurntSushi.ripgrep.MSVC`)
