@@ -35,11 +35,9 @@ Font-size:           11
 - __To install on Linux/Mac, open terminal and then run the command below__
 ```shell
 git clone --recursive https://github.com/dghuuloc/Neovim.Config.git ~/.config/nvim
-rm -rf ~/.local/share/nvim && rm -rf ~/.config/nvim && git clone https://github.com/dghuuloc/Neovim.Config.git ~/.config/nvim
 ```
 - __Windows__
 ```shell
 git clone --recursive https://github.com/dghuuloc/Neovim.Config.git $env:LOCALAPPDATA/nvim
-rmdir /S /Q %homepath%\appdata\local\nvim-data & rmdir /S /Q %homepath%\appdata\local\nvim & git clone https://github.com/dghuuloc/Neovim.Config.git %homepath%\appdata\local\nvim
 ```
 
