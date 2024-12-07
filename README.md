@@ -38,6 +38,9 @@ git clone --recursive https://github.com/dghuuloc/Neovim.Config.git ~/.config/nv
 ```
 - __Windows__
 ```shell
+rm $env:LOCALAPPDATA/nvim -r -fo
+rm $env:LOCALAPPDATA/nvim-data -r -fo
 git clone --recursive https://github.com/dghuuloc/Neovim.Config.git $env:LOCALAPPDATA/nvim
+rm $env:LOCALAPPDATA/nvim/.git -r -fo
 ```
 
