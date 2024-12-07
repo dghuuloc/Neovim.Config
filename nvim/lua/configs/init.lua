@@ -4,8 +4,8 @@ require("configs.options")
 -- Load the keymaps from the config/keymaps.lua file
 require("configs.keymaps")
 
--- Load the auto commands from the config/cmds.lua file
-require("configs.cmds")
+-- Load the auto commands from the config/commands.lua file
+require("configs.commands")
 
 ----------------------------------------------------------------------------------------------------------------
 -- Set up plugin manager for Neovim

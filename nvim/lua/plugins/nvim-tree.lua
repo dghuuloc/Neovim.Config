@@ -16,7 +16,7 @@ return {
             sync_root_with_cwd = true,
 
             renderer = {
-                root_folder_modifier = "%f",
+                root_folder_modifier = ":f",
                 group_empty = true,
             },
 
