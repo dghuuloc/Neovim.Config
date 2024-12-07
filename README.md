@@ -11,3 +11,9 @@
 
 ## Recommended Fonts
 - Choose one of the [Nerd Fonts](https://www.nerdfonts.com/font-downloads)
+- Here, I'm using JetBrainsMono Nerd Font for Windows Terminal Settings
+```
+Color scheme:        One Half Dark
+Font face:           JetBrainsMonoNL Nerd Font
+Font-size:           11
+```
