@@ -31,4 +31,3 @@ vim.opt.swapfile = false                                -- create a swapfile
 vim.opt.writebackup = false                             -- it is not allowed to be edited in another program
 
 vim.opt.updatetime = 50                                 -- faster completion
-

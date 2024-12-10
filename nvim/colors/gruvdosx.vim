@@ -1,5 +1,5 @@
-" Name:         mpadscol
-" Description:  dark background colorscheme.
+" Name:         gruvdosx
+" Description:  dark background colorscheme
 
 " -----------------------------------------------------------------------------------------
 " Syntax example: highlight Normal ctermfg=grey  guifg=#bcbcbc ctermbg=80 guibg=#2b2b28
@@ -13,7 +13,6 @@
 " reference docs --> https://phoenixnap.com/kb/vim-color-schemes
 " -----------------------------------------------------------------------------------------
 
-" Supporting code -------------------------------------------------------------------------
 set background=dark
 
 highlight clear
@@ -21,7 +20,7 @@ if exists("syntax_on")
 	syntax reset
 endif
 
-let g:colors_name = "mpadscol"
+let g:colors_name = "gruvdosx"
 set t_Co=256
 set cursorline
 
@@ -33,5 +32,4 @@ highlight Keyword                   guifg=#b294bb  guibg=NONE ctermbg=NONE gui=N
 highlight Identifier                guifg=#e0e0e0 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 highlight Function                  guifg=#81a2be ctermfg=180 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 highlight Statusline                guifg=#7ca8c6 guibg=#111111 ctermbg=NONE gui=italic cterm=NONE 
-
 
