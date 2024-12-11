@@ -24,12 +24,29 @@ let g:colors_name = "gruvdosx"
 set t_Co=256
 set cursorline
 
-highlight Normal                    guifg=#e0e0e0 guibg=#111111	ctermfg=gray ctermbg=black
-highlight Comment                   gui=italic cterm=italic
-highlight Constant                  guifg=#de935f guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-highlight String                    guifg=#698b69 ctermfg=114 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-highlight Keyword                   guifg=#b294bb  guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-highlight Identifier                guifg=#e0e0e0 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-highlight Function                  guifg=#81a2be ctermfg=180 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-highlight Statusline                guifg=#7ca8c6 guibg=#111111 ctermbg=NONE gui=italic cterm=NONE 
+highlight Normal                    guifg=#e0e2ea           guibg=#14161b           ctermfg=gray ctermbg=black
+
+highlight StatusLine                guifg=#81a2be           guibg=#14161b           gui=italic
+highlight Comment                   guifg=#9b9ea4                                   gui=italic              cterm=bold
+
+highlight Statement                 guifg=#e0e2ea                                   gui=bold                cterm=bold
+
+highlight Constant                  guifg=#de935f                                   gui=bold
+highlight Operator                  guifg=#e0e2ea
+highlight Keyword                   guifg=#87cefa
+highlight Identifier                guifg=#e0e2ea
+highlight Function                  guifg=#8cf8f7
+
+highlight String                    guifg=#99cc99
+highlight Boolean                   guifg=#de935f
+highlight Number                    guifg=#de935f
+highlight link Float Number
+
+highlight Structure                 guifg=#87cefa
+highlight Type                      guifg=#87cefa
+highlight Special                   guifg=#8cf8f7                                   gui=bold
+highlight Error                     guifg=#cc6666                                   gui=bold
+
+highlight @variable.builtin         guifg=#f8fe7a
+
 
