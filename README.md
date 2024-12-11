@@ -43,4 +43,15 @@ rm -r -fo $env:LOCALAPPDATA/nvim-data
 git clone --recursive https://github.com/dghuuloc/Neovim.Config.git $env:LOCALAPPDATA/nvim
 rm -r -fo $env:LOCALAPPDATA/nvim/.git
 ```
+### __Install Java Debug Server and Test Runner for Java (optional)__
+- __Insatall Java Debug Server on Windows__
+```shell
+git clone --recursive https://github.com/microsoft/java-debug.git $env:LOCALAPPDATA/nvim-data
+```
+
+- __Insatall Test Runner for Java on Windows__
+```shell
+git clone --recursive https://github.com/microsoft/vscode-java-test.git $env:LOCALAPPDATA/nvim-data
+```
+
 
