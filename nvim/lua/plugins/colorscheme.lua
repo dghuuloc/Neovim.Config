@@ -12,6 +12,7 @@ return {
       -- light = "lotus",
       dark = "wave", -- "wave, dragon"
     },
+
     colors = {
       palette = {
         -- Background colors
@@ -66,7 +67,9 @@ return {
         katanaGray = "#717C7C",
       },
     },
+
   },
+
   config = function(_, opts)
     require('kanagawa').setup(opts)
     -- vim.cmd("colorscheme kanagawa")
