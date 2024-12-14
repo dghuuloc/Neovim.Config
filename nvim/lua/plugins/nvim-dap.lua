@@ -1,9 +1,16 @@
 return {
     "mfussenegger/nvim-dap",
     dependencies = {
-        -- ui plugins to make debugging simplier
+        -- UI plugins to make debugging simplier
         "rcarriga/nvim-dap-ui",
-        "nvim-neotest/nvim-nio"
+        "nvim-neotest/nvim-nio",
+
+        -- Adapter for the Neovim Lua language
+        "jbyuki/one-small-step-for-vimkind",
+
+        -- Adapter for Python language
+        "mfussenegger/nvim-dap-python"
+
     },
 
     config = function()
@@ -68,8 +75,34 @@ return {
             vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>=", false, true, true), "n", false) --
         end, { desc = "Close debugger and end debugging session" })
 
+        -- Adapter Lua Setup
+        dap.adapters.nlua = function(callback, config)
+            local adapter = {
+                type = 'server',
+                host = config.host or '127.0.0.1',
+                port = config.port or '8085'
+            }
+            if config.start_neovim then
+                local dap_run = dap.run
+                dap.run = function(c)
+                    adapter.host = c.host
+                    adapter.port = c.port
+                end
+                require("osv").run_this()
+                dap.run = dap_run
+            end
+            callback(adapter)
+        end
+
+        -- Adapter Python Setup
+        dap.adapters.python = {
+            type = 'executable',
+            command = 'python',
+            args = {'-m', 'debugpy.adapter'},
+        }
+
         dap.configurations = {
-            -- Configurations for Java languages
+            -- Configurations for Java language
             java = {
                 {
                     type = "java",
@@ -79,7 +112,34 @@ return {
                     port = "8000"
                 }
             },
-            -- Configurations for other languages
+
+            -- Configurations for Lua language
+            lua = {
+                {
+                    type = 'nlua',
+                    request = 'attach',
+                    name = 'Run current file',
+                    start_neovim = {},
+                    console = 'integratedTerminal'
+                },
+                {
+                    type = 'nlua',
+                    request = 'attach',
+                    name = "Attach to running Neovim instance",
+                },
+            },
+
+            -- Configurations for Python language
+            python = {
+                {
+                    type = 'python',
+                    request = 'launch',
+                    name = 'Launch current file',
+                    program = '${file}',
+                    console = 'integratedTerminal'
+                }
+            }
         }
+
     end
 }
