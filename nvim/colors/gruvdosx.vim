@@ -85,51 +85,66 @@ highlight markdownCodeBlock         guifg=#98bb6c
 highlight markdownEscape            guifg=NONE
 
 "---------------------------------------------------------------------------------------------------------------------------
-highlight @variable                 guifg=#f9e7c0
+highlight link @function.builtin Special
+" highlight @function.method    cterm=bold gui=bold guifg=#b8bb26
+" highlight @function.member.call     cterm=bold gui=bold guifg=#b8bb26
+
+" highlight @variable                 guifg=#f9e7c0
+highlight @variable                 guifg=#ebdbb2
 highlight @variable.builtin         guifg=#e46876       gui=italic          cterm=italic
-highlight @variable.parameter       guifg=#bcacdb
-highlight @variable.member          guifg=#ffee99
+" highlight @variable.parameter       guifg=#bcacdb
+highlight @variable.parameter       guifg=#83a598
+" highlight @variable.member          guifg=#ffee99
+highlight @variable.member          guifg=#77bbdd
+
 highlight link @module Structure
 highlight link @property Identifier
 highlight link @constant Constant
 highlight link @constant.builtin Special
+
 highlight @string.regexp            guifg=#c0a36e
 highlight @string.escape            guifg=#c0a36e       gui=bold            cterm=bold
 highlight @string.special.symbol    guifg=#ffee99
 highlight @string.special.url       guifg=#7fc4ef       gui=undercurl       cterm=undercurl
+
 highlight link @attribute Constant
 highlight @constructor              guifg=#7fc4ef
 highlight @constructor.lua          guifg=#bfa3e6
 highlight link @operator Operator
+
 highlight @keyword.operator         guifg=#c0a36e       gui=bold            cterm=bold
+highlight @keyword.return           guifg=#e46876       gui=italic          cterm=italic
+highlight @keyword.exception        guifg=#e46876       gui=bold            cterm=bold
+highlight @keyword.operator         guifg=#e46876       gui=bold            cterm=bold
 highlight link @keyword.import PreProc       
-highlight @keyword.return           guifg=#ff5d62       gui=italic          cterm=italic
-highlight @keyword.exception        guifg=#ff5d62       gui=bold            cterm=bold
 highlight link @keyword.luap @string.regexp
+
 highlight @punctuation.delimiter    guifg=#9cabca
 highlight @punctuation.bracket      guifg=#9cabca
 highlight @punctuation.special      guifg=#7fc4ef
+
 highlight @comment.error            guifg=#f9e7c0       guibg=#e82424       gui=bold        cterm=bold
 highlight @comment.warning          guifg=#322c47       guibg=#ff9e3b       gui=bold        cterm=bold 
 highlight @comment.note             guifg=#322c47       guibg=#7e9cd8       gui=bold        cterm=bold 
+
 highlight @markup.strong                                                    gui=bold        cterm=bold
 highlight @markup.italic                                                    gui=italic      cterm=italic
 highlight @markup.strikethrough                                             gui=strikethrough           cterm=strikethrough
 highlight @markup.underline                                                 gui=underline               cterm=underline
+
 highlight link @markup.heading Function
 highlight link @markup.quote @variable.parameter
 highlight link @markup.math Constant
 highlight link @markup.environment Keyword
 highlight link @markup.link.url @string.special.url
 highlight link @markup.raw String
+
 highlight @diff.plus                guifg=#76a56a
 highlight @diff.minus               guifg=#c34043
 highlight @diff.delta               guifg=#dca561
 highlight @tag.attribute            guifg=#ffee99
 highlight @tag.delimiter            guifg=#9cabca
 highlight link @tag.builtin Special
-
-highlight link @function.builtin Special
 
 " ------- PLUGINS
 " for NeoVim
