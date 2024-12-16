@@ -94,7 +94,8 @@ highlight link @function.builtin Special
 highlight @variable                 guifg=#d5c4a1
 highlight @variable.builtin         guifg=#e46876       gui=italic          cterm=italic
 " highlight @variable.parameter       guifg=#bcacdb
-highlight @variable.parameter       guifg=#83a598
+" highlight @variable.parameter       guifg=#83a598
+highlight @variable.parameter       guifg=#d5c4a1
 " highlight @variable.member          guifg=#ffee99
 highlight @variable.member          guifg=#77bbdd
 
