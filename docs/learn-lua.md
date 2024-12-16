@@ -2,10 +2,10 @@
 ---
 ## Lua's Keywords
 ```
-                and       break     do        else      elseif    end
-                false     for       function  goto      if        in
-                local     nil       not       or        repeat    return
-                then      true      until     while
+and       break     do        else      elseif    end
+false     for       function  goto      if        in
+local     nil       not       or        repeat    return
+then      true      until     while
 ```
 
 
