@@ -90,7 +90,8 @@ highlight link @function.builtin Special
 " highlight @function.member.call     cterm=bold gui=bold guifg=#b8bb26
 
 " highlight @variable                 guifg=#f9e7c0
-highlight @variable                 guifg=#ebdbb2
+" highlight @variable                 guifg=#ebdbb2
+highlight @variable                 guifg=#d5c4a1
 highlight @variable.builtin         guifg=#e46876       gui=italic          cterm=italic
 " highlight @variable.parameter       guifg=#bcacdb
 highlight @variable.parameter       guifg=#83a598
