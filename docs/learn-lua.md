@@ -77,6 +77,17 @@ local match = string.match
 - Passed as reference
 - The length operator: `#`
 - `pairs(t)`, `ipairs(t)`
+## Metatables
+- Overload operators
+- Override built-in functions such as tostring
+- Treat missing fields or intercept new field creation
+- Call table as a function
+- Metamethods:
+```
+__add, __sub, __mul, __div, __mod, __pow, __unm, __concat, __len, __eq, __lt,
+__le, __index, __newindex, __call, __tostring, __ipairs, __pairs, __gc
+```
+---
 ## Comments
 ```lua
 -- This is a comment. It starts with two dashes
@@ -106,7 +117,6 @@ local truth, lies = true, false
 local nothing = nil
 ```
 
-
 ## References
 - [Lua Crash Course](https://github.com/tjdevries/advent-of-nvim/blob/master/03%20-%20Lua%20Crash%20Course/03%20-%20Lua%20Crash%20Course.md)
 - [Lua Tutorial](https://gamedevacademy.org/lua-programming-language-tutorial-complete-guide/)
@@ -126,3 +136,4 @@ local nothing = nil
 - [References and Values](https://www.whoop.ee/post/types-in-lua-references-vs-values.html)
 - [Lua Quick Start Guide](https://github.com/gszauer/LuaQuickStartGuide)
 - [learn.lua](https://gist.github.com/tylerneylon/5853042)
+- [Get started with Lua programming](https://www.slideshare.net/slideshow/get-started-with-lua-programming/55292718)
