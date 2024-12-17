@@ -90,10 +90,10 @@ __le, __index, __newindex, __call, __tostring, __ipairs, __pairs, __gc
 ---
 ## Comments
 ```lua
--- This is a comment. It starts with two dashes
---[[ This is also
-     a comment.
-     But it spans multiple lines!
+-- comments start with two dashes
+--[[ 
+     adding two square brackets
+     makes the comments multi-line
 --]]
 ```
 ## Variables
@@ -110,12 +110,54 @@ __More Examples:__
 ```lua
 local number = 5
 local string = "hello, world"
-local single = 'also works'
+local single = 'also works, single quoted strings'
 local crazy = [[ This
- is multi line and literal ]]
+ is multi line and literal
+]]
 local truth, lies = true, false
 local nothing = nil
 ```
+## Booleans
+```lua
+booleanValue = true
+-- `not` can be used to invert boolean values
+oppositeValue = not booleanValue                  --> false
+definitelyBoolean = not not booleanValue          --> true
+if not oppositeValue then print('it was false') end
+--> it was false
+
+-- `not` coerces other types to booleans
+-- all values except nil and false are truthy
+print(not 'a')          --> false
+print(not not 'a')      --> true
+```
+
+## Loops
+- While a certain `condition` is active, do the “following”:
+```lua
+while condition do
+end
+```
+- The loop will iterate from `start` to `end` and `delta` can be used to manipulate steps.
+```lua
+for i = start, end, delta do
+end
+```
+- In Lua, pairs is a built-in function used to iterate over all key-value pairs in a table. It returns a key-value pair for each iteration. Here's the basic syntax:
+```lua
+for key, value in pairs(your_table) do
+end
+```
+```lua
+for key, value in ipairs(your_table) do
+end
+```
+- Repeat something until the condition is met:
+```lua
+repeat
+until condition
+```
+
 
 ## References
 - [Lua Crash Course](https://github.com/tjdevries/advent-of-nvim/blob/master/03%20-%20Lua%20Crash%20Course/03%20-%20Lua%20Crash%20Course.md)
@@ -137,3 +179,4 @@ local nothing = nil
 - [Lua Quick Start Guide](https://github.com/gszauer/LuaQuickStartGuide)
 - [learn.lua](https://gist.github.com/tylerneylon/5853042)
 - [Get started with Lua programming](https://www.slideshare.net/slideshow/get-started-with-lua-programming/55292718)
+- [Lua Basic Overview](https://help.pixera.one/lua-basic-overview)
