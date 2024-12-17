@@ -141,25 +141,44 @@ if not oppositeValue then print('it was false') end
 print(not 'a')          --> false
 print(not not 'a')      --> true
 ```
-
-## Loops
-- While a certain `condition` is active, do the “following”:
-```lua
-while condition do
+## Control flow
+Lua has one type of conditional test: `if then end` with optional `else` and `elseif then` execution control constructs
+```
+if condition then
+	--statement body
+elseif condition then
+	--statement body
+else -- optional
+	--optional default statement body
 end
 ```
-- The loop will iterate from `start` to `end` and `delta` can be used to manipulate steps.
-```lua
-for i = start, end, delta do
+## Loops
+Lua has four types of conditional loops: the `while` loop, the `repeat until` loop (similar to a `do while` loop), the numeric `for` loop and the generic `for` loop.
+```
+--condition = true
+
+while condition do
+  --statements
+end
+
+repeat
+  --statements
+until condition
+
+for i = first, last, delta do  --delta may be negative, allowing the for loop to count down or up
+  --statements
+  --example: print(i)
 end
 ```
 - In Lua, pairs is a built-in function used to iterate over all key-value pairs in a table. It returns a key-value pair for each iteration. Here's the basic syntax:
 ```lua
 for key, value in pairs(your_table) do
+     print(key, value)
 end
 ```
 ```lua
 for key, value in ipairs(your_table) do
+     print(key, value)
 end
 ```
 - Repeat something until the condition is met:
