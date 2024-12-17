@@ -87,6 +87,9 @@ Relational operators are supplied which return the boolean values `true` or `fal
 ## Logical operators
 Lua provides the logical operators `and`, `or` and `not`. In Lua both `nil` and the boolean value `false` represent false in a logical expression. Anything that is not false (either `nil` or `false`) is `true`.
 
+## Data Types
+
+
 ## Variables
 Create a variable within a control module by using:
 ``` lua
@@ -124,7 +127,7 @@ print(not not 'a')      --> true
 ```
 ## Control flow
 Lua has one type of conditional test: `if then end` with optional `else` and `elseif then` execution control constructs
-```
+```lua
 if condition then
 	--statement body
 elseif condition then
@@ -135,7 +138,7 @@ end
 ```
 ## Loops
 Lua has four types of conditional loops: the `while` loop, the `repeat until` loop (similar to a `do while` loop), the numeric `for` loop and the generic `for` loop.
-```
+```lua
 --condition = true
 
 while condition do
@@ -167,9 +170,6 @@ end
 repeat
 until condition
 ```
-
-## Functions
-
 ## Tables
 - The only way to structure data
 - Array, dictionary, object, list, queue, module,...
@@ -178,6 +178,8 @@ until condition
 - Passed as reference
 - The length operator: `#`
 - `pairs(t)`, `ipairs(t)`
+
+## Functions
 
 ## Modules
 
