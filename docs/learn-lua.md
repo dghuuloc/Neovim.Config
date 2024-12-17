@@ -172,7 +172,6 @@ end
 - Behind the scenes; array or hash table
 - Passed as reference
 - The length operator: `#`
-- `pairs(t)`, `ipairs(t)`
 
 ## Functions
 
