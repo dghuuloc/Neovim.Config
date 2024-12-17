@@ -165,11 +165,6 @@ for key, value in ipairs(your_table) do
      print(key, value)
 end
 ```
-- Repeat something until the condition is met:
-```lua
-repeat
-until condition
-```
 ## Tables
 - The only way to structure data
 - Array, dictionary, object, list, queue, module,...
