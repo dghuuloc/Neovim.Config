@@ -186,7 +186,11 @@ end
 repeat
 until condition
 ```
-
+## Functions
+## Tables
+## Metatables
+## Object-oriented programming
+## Inheritance
 
 ## References
 - [Lua Crash Course](https://github.com/tjdevries/advent-of-nvim/blob/master/03%20-%20Lua%20Crash%20Course/03%20-%20Lua%20Crash%20Course.md)
