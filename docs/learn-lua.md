@@ -8,13 +8,74 @@ local     nil       not       or        repeat    return
 then      true      until     while
 ```
 
-## Comments
 ```
+_G                    coroutine.create           file:close           os.clock               table.pack
+_VERSION              coroutine.resume           file:flush           os.date                table.remove
+assert                coroutine.running          file:lines           os.difftime            table.sort
+collectgarbage        coroutine.status           file:read            os.execute             table.unpack
+dofile                coroutine.wrap             file:seek            os.exit
+error                 coroutine.yield            file:setvbuf         os.getenv
+getmetatable          debug.debug                file:write           os.remove
+ipairs                debug.getuservalue         math.abs             os.rename
+load                  debug.gethook              math.acos            os.setlocale
+loadfile              debug.getinfo              math.asin            os.time
+next                  debug.getlocal             math.atan            os.tmpname
+pairs                 debug.getmetatable         math.atan2           package
+pcall                 debug.getregistry          math.ceil            package.config
+print                 debug.getupvalue           math.cos             package.cpath
+rawequal              debug.setuservalue         math.cosh            package.loaded
+rawget                debug.sethook              math.deg             package.loadlib
+rawlen                debug.setlocal             math.exp             package.path
+rawset                debug.setmetatable         math.floor           package.preload
+require               debug.setupvalue           math.fmod            package.searchers
+select                debug.traceback            math.frexp           package.searchpath
+setmetatable          debug.upvalueid            math.huge            string.byte
+tonumber              debug.upvaluejoin          math.ldexp           string.char
+tostring              io.close                   math.log             string.dump
+type                  io.flush                   math.max             string.find
+xpcall                io.input                   math.min             string.format
+bit32.arshift         io.lines                   math.modf            string.gmatch
+bit32.band            io.open                    math.pi              string.gsub
+bit32.bnot            io.output                  math.pow             string.len
+bit32.bor             io.popen                   math.rad             string.lower
+bit32.btest           io.read                    math.random          string.match
+bit32.bxor            io.stderr                  math.randomseed      string.rep
+bit32.extract         io.stdin                   math.sin             string.reverse
+bit32.lrotate         io.stdout                  math.sinh            string.sub
+bit32.lshift          io.tmpfile                 math.sqrt            string.upper
+bit32.replace         io.type                    math.tan             table.concat
+bit32.rrotate         io.write                   math.tanh            table.insert
+bit32.rshift
+```
+
+
+## Comments
+```lua
 -- This is a comment. It starts with two dashes
 --[[ This is also
      a comment.
      But it spans multiple lines!
 --]]
+```
+## Variables
+Create a variable within a control module by using:
+``` lua
+-- local variables are only accessible in the script they have been created in
+local variable_name = 10
+-- global variable accessible everywhere in Control
+global_variable = 1
+-- self.name variable are accessible within the module
+self.module_variable = 2
+```
+__More Examples:__
+```lua
+local number = 5
+local string = "hello, world"
+local single = 'also works'
+local crazy = [[ This
+ is multi line and literal ]]
+local truth, lies = true, false
+local nothing = nil
 ```
 
 
