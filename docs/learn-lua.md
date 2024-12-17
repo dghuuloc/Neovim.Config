@@ -58,7 +58,7 @@ bit32.rshift
 - Pattern matching is not regular expression
 - The concatenation operator is `..`
 
-## Quick idions
+## Quick idioms
 - a, b = a, b
 - There's no ternary operator but can
 ```lua
@@ -68,25 +68,6 @@ return x == 1 and "yes" or "no"
 ```lua
 local match = string.match
 ```
-## Tables
-- The only way to structure data
-- Array, dictionary, object, list, queue, module,...
-- Any value can by a key, except `nil` and `nan`
-- Behind the scenes; array or hash table
-- Passed as reference
-- The length operator: `#`
-- `pairs(t)`, `ipairs(t)`
-## Metatables
-- Overload operators
-- Override built-in functions such as tostring
-- Treat missing fields or intercept new field creation
-- Call table as a function
-- Metamethods:
-```
-__add, __sub, __mul, __div, __mod, __pow, __unm, __concat, __len, __eq, __lt,
-__le, __index, __newindex, __call, __tostring, __ipairs, __pairs, __gc
-```
----
 ## Comments
 ```lua
 -- comments start with two dashes
@@ -186,10 +167,33 @@ end
 repeat
 until condition
 ```
+
 ## Functions
+
 ## Tables
+- The only way to structure data
+- Array, dictionary, object, list, queue, module,...
+- Any value can by a key, except `nil` and `nan`
+- Behind the scenes; array or hash table
+- Passed as reference
+- The length operator: `#`
+- `pairs(t)`, `ipairs(t)`
+
+## Modules
+
 ## Metatables
+- Overload operators
+- Override built-in functions such as tostring
+- Treat missing fields or intercept new field creation
+- Call table as a function
+- Metamethods:
+```
+__add, __sub, __mul, __div, __mod, __pow, __unm, __concat, __len, __eq, __lt,
+__le, __index, __newindex, __call, __tostring, __ipairs, __pairs, __gc
+```
+
 ## Object-oriented programming
+
 ## Inheritance
 
 ## References
