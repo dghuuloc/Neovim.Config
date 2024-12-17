@@ -8,6 +8,15 @@ local     nil       not       or        repeat    return
 then      true      until     while
 ```
 
+## Comments
+```
+-- This is a comment. It starts with two dashes
+--[[ This is also
+     a comment.
+     But it spans multiple lines!
+--]]
+```
+
 
 ## References
 - [Lua Crash Course](https://github.com/tjdevries/advent-of-nvim/blob/master/03%20-%20Lua%20Crash%20Course/03%20-%20Lua%20Crash%20Course.md)
