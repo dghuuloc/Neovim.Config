@@ -47,7 +47,6 @@ bit32.replace         io.type                    math.tan             table.conc
 bit32.rrotate         io.write                   math.tanh            table.insert
 bit32.rshift
 ```
-
 ## What's different
 - The index starts at `1`
 - There's no `continue` keyword
@@ -96,6 +95,17 @@ __le, __index, __newindex, __call, __tostring, __ipairs, __pairs, __gc
      makes the comments multi-line
 --]]
 ```
+## Ralational Expressions
+Relational operators are supplied which return the boolean values `true` or `false`
+- `==` equal to
+- `~=` not equal to
+- `<` less than
+- `>` greater than
+- `<=` less than or equal to
+- `>=` greater than or equal to
+## Logical operators
+Lua provides the logical operators `and`, `or` and `not`. In Lua both `nil` and the boolean value `false` represent false in a logical expression. Anything that is not false (either `nil` or `false`) is `true`.
+
 ## Variables
 Create a variable within a control module by using:
 ``` lua
