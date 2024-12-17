@@ -48,7 +48,35 @@ bit32.rrotate         io.write                   math.tanh            table.inse
 bit32.rshift
 ```
 
+## What's different
+- The index starts at `1`
+- There's no `continue` keyword
+- The non-equality operator is `~=`
+- `null` is `nil`
+- Only `nil` and `false` are equivalent to false
+- Functions can genuinely return multiple values
+- Variables are global by default
+- Pattern matching is not regular expression
+- The concatenation operator is `..`
 
+## Quick idions
+- a, b = a, b
+- There's no ternary operator but can
+```lua
+return x == 1 and "yes" or "no"
+```
+- The access to local variables is faster than global
+```lua
+local match = string.match
+```
+## Tables
+- The only way to structure data
+- Array, dictionary, object, list, queue, module,...
+- Any value can by a key, except `nil` and `nan`
+- Behind the scenes; array or hash table
+- Passed as reference
+- The length operator: `#`
+- `pairs(t)`, `ipairs(t)`
 ## Comments
 ```lua
 -- This is a comment. It starts with two dashes
