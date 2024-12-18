@@ -156,7 +156,18 @@ for i = first, last, delta do  --delta may be negative, allowing the for loop to
   --example: print(i)
 end
 ```
+
+## Tables
+- The only way to structure data
+- Array, dictionary, object, list, queue, module,...
+- Any value can by a key, except `nil` and `nan`
+- Behind the scenes; array or hash table
+- Passed as reference
+- The length operator: `#`
 - In Lua, pairs is a built-in function used to iterate over all key-value pairs in a table. It returns a key-value pair for each iteration. Here's the basic syntax:
+  - `ipairs()` returns index-value pairs and is mostly used for numeric tables. The non-numeric keys are ignored as a whole, similar to numeric indices less than 1. In addition, gaps in between the indices lead to halts. The ordering is deterministic, by numeric magnitude.
+  - `pairs()` returns key-value pairs and is mostly used for associative tables. All keys are preserved, but the order is unspecified.
+  - In addition, while `pairs()` may be used to get the size of a table, using `ipairs()` for the same task is unsafe a priori, since it might miss some keys.
 ```lua
 for key, value in pairs(your_table) do
      print(key, value)
@@ -167,13 +178,6 @@ for key, value in ipairs(your_table) do
      print(key, value)
 end
 ```
-## Tables
-- The only way to structure data
-- Array, dictionary, object, list, queue, module,...
-- Any value can by a key, except `nil` and `nan`
-- Behind the scenes; array or hash table
-- Passed as reference
-- The length operator: `#`
 
 ## Functions
 
