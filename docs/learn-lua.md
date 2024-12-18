@@ -167,7 +167,7 @@ end
 - In Lua, pairs is a built-in function used to iterate over all key-value pairs in a table. It returns a key-value pair for each iteration. Here's the basic syntax:
   - `ipairs()` returns index-value pairs and is mostly used for numeric tables. The non-numeric keys are ignored as a whole, similar to numeric indices less than 1. In addition, gaps in between the indices lead to halts. The ordering is deterministic, by numeric magnitude.
   - `pairs()` returns key-value pairs and is mostly used for associative tables. All keys are preserved, but the order is unspecified.
-  - In addition, while `pairs()` may be used to get the size of a table, using `ipairs()` for the same task is unsafe a priori, since it might miss some keys.
+  - In addition, while `pairs()` may be used to get the size of a table [see here](https://stackoverflow.com/questions/2705793/how-to-get-number-of-entries-in-a-lua-table), using `ipairs()` for the same task is unsafe a priori, since it might miss some keys.
 ```lua
 for key, value in pairs(your_table) do
      print(key, value)
