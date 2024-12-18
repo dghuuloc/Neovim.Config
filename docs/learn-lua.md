@@ -181,6 +181,21 @@ end
 
 
 ## Functions
+- A typical Lua function looks:
+```lua
+local function myFunction( parameters )
+    -- Function content
+end
+```
+- Annonymous Functions
+```lua
+local myFunction = function( parameters )
+    -- Function content
+end
+```
+- Multiple Returns
+- Colon Functions
+- Higher Order Functions
 
 ## Modules
 
