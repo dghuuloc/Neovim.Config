@@ -99,6 +99,8 @@ local variable_name = 10
 global_variable = 1
 -- self.name variable are accessible within the module
 self.module_variable = 2
+--doing this can sometimes be bad practice
+local _G.myValue = 3
 ```
 __More Examples:__
 ```lua
