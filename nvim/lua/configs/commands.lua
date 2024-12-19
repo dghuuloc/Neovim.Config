@@ -41,3 +41,9 @@ vim.api.nvim_create_user_command('DelRegs', function()
     utils.clearReg()
 end, {})
 
+-- Create Maven New Project
+vim.api.nvim_create_user_command(
+    "MavenNewProject",
+    utils.maven_new_project,
+    {desc = "Create New Maven Project"}
+)
