@@ -17,9 +17,23 @@ end
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --#region for Java
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Get Maven Project Info from User_Input
+local function get_maven_project_info(prompt, default_value)
+   vim.fn.inputsave()
+   local result = vim.fn.input(prompt, default_value)
+   vim.fn.inputrestore()
+
+   if result == "" then
+       return result, true
+   end
+
+   return result, false
+end
+
 -- Create Maven New Project
 function M.maven_new_project()
 
+    --[[
     -- Get Maven Project Info from User_Input
     local function get_maven_project_info(prompt, default_value)
        vim.fn.inputsave()
@@ -32,10 +46,11 @@ function M.maven_new_project()
 
        return result, false
     end
-    
+    --]]
+
     -- Initialize values for Maven New Project Info
     local chDir = ""
-    local artifact_id, canceled_artifactId = get_maven_project_info("Do you want to create project here or enter another project name? ", "")
+    local artifact_id, canceled_artifactId = get_maven_project_info("Enter project name: ", "")
     if artifact_id == "" then
         chDir = "cd .."
         artifact_id = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t') 
@@ -70,7 +85,56 @@ function M.maven_new_project()
 
 end
 
+-- Maven Run Project
+function M.maven_run_project()
+    local group_id = vim.fn.expand('%')
+    group_id = group_id:gsub("\\", ".")
+    group_id = group_id:gsub("src.main.java.", ""):gsub(vim.fn.expand('%:t'), "")
 
+    local cmdRun = string.format(
+        [[mvn -q exec:java "-Dexec.mainClass=%s%s"]],
+        group_id,
+        vim.fn.expand('%:t:r')
+
+    )
+
+    vim.cmd("new")
+    vim.cmd("term " .. cmdRun)
+    vim.fn.feedkeys("a")
+
+end
+
+-- Maven Run Project
+function M.maven_task_project()
+    local mvnTask = nil
+
+    local taskMaster, canceled_task = get_maven_project_info("Enter Maven Task: ", "")
+    
+    if taskMaster == "tree" then
+        mvnTask = "mvn dependency:tree"
+    elseif taskMaster == "analyze" then
+        mvnTask = "mvn dependency:analyze"
+    elseif taskMaster == "validate" then
+        mvnTask = "mvn clean validate"
+    elseif taskMaster == "compile" then
+        mvnTask = "mvn clean compile"
+    elseif taskMaster == "test" then
+        mvnTask = "mvn clean test"
+    elseif taskMaster == "package" then
+        mvnTask = "mvn clean package"
+    elseif taskMaster == "verify" then
+        mvnTask = "mvn clean verify"
+    elseif taskMaster == "install" then
+        mvnTask = "mvn clean install"
+    else
+        return mvnTask
+    end
+
+    vim.cmd("new")
+    vim.cmd("term " .. mvnTask)
+    vim.fn.feedkeys("a")
+    
+end
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --#region for Java
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -92,8 +156,6 @@ vim.keymap.set("n", "<leader>hl",
 , { desc = 'How to call '})
 -- END TESTING AREA
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
 
 -- We want to be able to access utils in all our configuration files
 -- so we add the module to the _G global variable.

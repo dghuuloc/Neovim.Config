@@ -47,3 +47,17 @@ vim.api.nvim_create_user_command(
     utils.maven_new_project,
     {desc = "Create New Maven Project"}
 )
+
+-- Run Maven Project
+vim.api.nvim_create_user_command(
+    "MavenRun",
+    utils.maven_run_project,
+    {desc = "Run Maven Project"}
+)
+
+-- Run Maven Project
+vim.api.nvim_create_user_command(
+    "MavenTask",
+    utils.maven_task_project,
+    {desc = "Execute Maven Task"}
+)
