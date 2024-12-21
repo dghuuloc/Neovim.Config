@@ -30,30 +30,28 @@ local function get_maven_project_info(prompt, default_value)
    return result, false
 end
 
+-- Execute commands
+local function execute_command(command)
+    vim.cmd("new")
+    vim.cmd("term " .. command)
+    vim.fn.feedkeys("a")
+end
+
 -- Create Maven New Project
 function M.maven_new_project()
-
-    --[[
-    -- Get Maven Project Info from User_Input
-    local function get_maven_project_info(prompt, default_value)
-       vim.fn.inputsave()
-       local result = vim.fn.input(prompt, default_value)
-       vim.fn.inputrestore()
-
-       if result == "" then
-           return result, true
-       end
-
-       return result, false
-    end
-    --]]
-
     -- Initialize values for Maven New Project Info
-    local chDir = ""
     local artifact_id, canceled_artifactId = get_maven_project_info("Enter project name: ", "")
-    if artifact_id == "" then
-        chDir = "cd .."
-        artifact_id = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t') 
+    if canceled_artifactId then return end
+
+    local project_dir = string.format(
+        [[%s\%s]],
+        vim.fn.getcwd(),
+        artifact_id
+    )
+
+    if vim.fn.mkdir(project_dir, "p") == 0 then
+        vim.notify("Failed to create project directory")
+        return
     end
 
     local group_id, canceled_group = get_maven_project_info("Enter groupId: ", "com.example.app")
@@ -79,9 +77,17 @@ function M.maven_new_project()
     )
 
     -- Execute final_commands
-    vim.cmd("new")
-    vim.cmd("term " .. chDir .. ";" .. commands)
-    vim.fn.feedkeys("a")
+    vim.cmd("redraw | echo")
+    vim.notify(string.format("Wait a moment for creating %s new project!", artifact_id))
+    local output = vim.fn.system(commands)
+    if vim.v.shell_error ~= 0 then
+        vim.notify("Error when running " .. output)
+    else
+        print(output)
+        local ch_dir = string.format("cd %s", project_dir)
+        vim.fn.system(ch_dir)
+        vim.fn.chdir(project_dir)
+    end
 
 end
 
@@ -97,10 +103,8 @@ function M.maven_run_project()
         vim.fn.expand('%:t:r')
 
     )
-
-    vim.cmd("new")
-    vim.cmd("term " .. cmdRun)
-    vim.fn.feedkeys("a")
+    -- Execute commands
+    execute_command(cmdRun)
 
 end
 
@@ -130,10 +134,9 @@ function M.maven_task_project()
         return mvnTask
     end
 
-    vim.cmd("new")
-    vim.cmd("term " .. mvnTask)
-    vim.fn.feedkeys("a")
-    
+    -- Execute commands
+    execute_command(mvnTask)
+
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --#region for Java
@@ -147,10 +150,6 @@ end
 
 vim.keymap.set("n", "<leader>hl", 
     function ()
-        local cmdName = vim.fn.input("Enter your name: ")
-        vim.cmd("new")
-        vim.cmd("term " .. "cd .." .. ";" .. cmdName)
-        vim.fn.feedkeys("a")
     end
 
 , { desc = 'How to call '})

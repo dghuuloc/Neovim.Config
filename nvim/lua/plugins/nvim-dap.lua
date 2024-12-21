@@ -134,9 +134,12 @@ return {
                 {
                     type = 'python',
                     request = 'launch',
-                    name = 'Launch current file',
+                    name = 'Launch a debugging session',
                     program = '${file}',
-                    console = 'integratedTerminal'
+                    console = 'integratedTerminal',
+                    pythonPath = function()
+                        return 'python'
+                    end
                 }
             }
         }

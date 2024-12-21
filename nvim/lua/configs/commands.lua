@@ -6,7 +6,7 @@ vim.cmd.colorscheme("gruvdosx")
 -- Get h and l for moving over next lines or previous lines
 vim.cmd([[set whichwrap+=<,>,[,],h,l]])
 
--- Terminal
+-- Terminal settings
 vim.cmd([[ 
     let &shell = has('win32') ? 'powershell' : 'pwsh'
     let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
@@ -55,7 +55,7 @@ vim.api.nvim_create_user_command(
     {desc = "Run Maven Project"}
 )
 
--- Run Maven Project
+-- Execute Maven Task
 vim.api.nvim_create_user_command(
     "MavenTask",
     utils.maven_task_project,
