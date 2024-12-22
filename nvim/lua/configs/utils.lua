@@ -150,8 +150,14 @@ end
 
 vim.keymap.set("n", "<leader>hl", 
     function ()
-    end
+        local lines = vim.fn.readfile(vim.fn.getcwd() .. "\\.project") 
+        for linenum, line in ipairs(lines) do
+            if line:match("<name>JavaEcVim</name>") then
+                print(line)
 
+            end
+        end
+    end
 , { desc = 'How to call '})
 -- END TESTING AREA
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
