@@ -76,15 +76,53 @@ local match = string.match
 ```
 ## Ralational Expressions
 Relational operators are supplied which return the boolean values `true` or `false`
-- `==` equal to
-- `~=` not equal to
-- `<` less than
-- `>` greater than
-- `<=` less than or equal to
-- `>=` greater than or equal to
+
+|__Relational Operator__	|__Description__		|
+|:------------------------------|:------------------------------|
+|`==` 				| equal to			|
+|`~=`				| not equal to			|
+|`<`				| less than			|
+|`>`				| greater than			|
+|`<=`				| less than or equal to		|
+|`>=`				| greater than or equal to	|
+
 ## Logical operators
 Lua provides the logical operators `and`, `or` and `not`. In Lua both `nil` and the boolean value `false` represent false in a logical expression. Anything that is not false (either `nil` or `false`) is `true`.
-## Data Types
+|__Logical Operator__	|__Arity__	|__Operation__		|
+|:----------------------|:--------------|:----------------------|
+| `and`			| Binary	| `AND` combination	|
+| `or`			| Binary	| `OR` combination	|
+| `not`			| Binary	| Negation		|
+
+In addition to the operators above, there are two special operators in Lua. These are used to __concatenate strings__ and __determine the power of a combined value__, like a table or string:
+|__Operator__	|__Arity__	|__Operation__								|
+|:--------------|:--------------|:----------------------------------------------------------------------|
+| `..`		| Binary	| String concatenation							|
+| `#`		| Unary		| Determine the number of elements of a table/length of a string	|
+
+## Values and types for the Lua
+|__Type__	|__Explanation__					|
+|:--------------|:------------------------------------------------------|
+|number		| Decimal number					|
+|string		| Character string					|
+|boolean	| Truth value: `true` or `false`			|
+|nill		| Missing value; the type has only the value `nil`	|
+|function	| Function						|
+|table		| Combined data type: list/array, hash/dictionary	|
+|thread		| Coroutines						|
+|userdata	| User-defined C data type				|
+
+## Arithmetic Operators
+| __Arithmetic operator__	| __Arity__	| __Operation__		|
+|:------------------------------|:--------------|:----------------------|
+| `+`				| Binary	| Addition		|
+| `-`				| Binary	| Subtraction		|
+| `*`				| Binary	| Multiplication	|
+| `/`				| Binary	| Division		|
+| `%`				| Binary	| Modulus		|
+| `^`				| Binary	| Potentiation		|
+| `-`				| Unary		| Negation		|
+
 ## Variables
 Create a variable within a control module by using:
 ``` lua
