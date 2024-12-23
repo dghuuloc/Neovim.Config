@@ -206,6 +206,7 @@ end
 	end
   	```
   - In addition, while `pairs()` may be used to get the size of a table [see here](https://stackoverflow.com/questions/2705793/how-to-get-number-of-entries-in-a-lua-table), using `ipairs()` for the same task is unsafe a priori, since it might miss some keys.
+
 ## Functions
 - A typical Lua function looks:
 ```lua
