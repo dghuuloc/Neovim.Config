@@ -123,6 +123,19 @@ In addition to the operators above, there are two special operators in Lua. Thes
 | `^`				| Binary	| Potentiation		|
 | `-`				| Unary		| Negation		|
 
+## Lua - `Hello World` and Recommended script header
+```lua
+--[[
+	@title: hello world script
+	@author: dghuuloc
+	@lastupdated: 23-12-2024
+	@description:
+	This is a Script which provides an example header layout.
+	It displays a message saying "Hello, World!"
+]]
+print("Hello, World!")
+```
+
 ## Variables
 Create a variable within a control module by using:
 ``` lua
