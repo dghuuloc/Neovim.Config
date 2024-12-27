@@ -61,3 +61,17 @@ vim.api.nvim_create_user_command(
     utils.maven_task_project,
     {desc = "Execute Maven Task"}
 )
+
+-- Create Java Class 
+vim.api.nvim_create_user_command(
+    "MavenNewClass",
+    utils.create_java_class,
+    {desc = "Create Java Class"}
+)
+
+-- Create Java Interface 
+vim.api.nvim_create_user_command(
+    "MavenNewInterface",
+    utils.create_java_interface,
+    {desc = "Create Java Interface"}
+)

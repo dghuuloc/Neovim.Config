@@ -37,6 +37,25 @@ local function execute_command(command)
     vim.fn.feedkeys("a")
 end
 
+-- Check Default Package 
+local function get_default_package()
+    local path = vim.fn.expand("%:p:h")
+    local project_root = vim.fn.getcwd()
+    local relative_path = path:sub(#project_root + 1)
+
+    local uname = vim.loop.os_uname().sysname
+    if uname == "Windows_NT" then
+        relative_path = relative_path:gsub("src\\main\\java\\", "")
+        relative_path = relative_path:gsub("\\", ".")
+    else
+        relative_path = relative_path:gsub("src/main/java/", "")
+        relative_path = relative_path:gsub("/", ".")
+    end
+
+    return relative_path:sub(2)
+
+end
+
 -- Create Maven New Project
 function M.maven_new_project()
     -- Initialize values for Maven New Project Info
@@ -138,6 +157,109 @@ function M.maven_task_project()
     execute_command(mvnTask)
 
 end
+
+-- Create Java Class
+function M.create_java_class()
+    local package_name, canceled_package = get_maven_project_info("Enter Package Name: ", get_default_package())
+    if canceled_package then return end
+
+    local class_name, canceled_class = get_maven_project_info("Enter Class Name: ", "")
+    if canceled_class then return end
+
+    local package_dir = nil
+    if package_name then
+        package_dir = string.format("src/main/java/%s", package_name:gsub("%.", "/"))
+
+        if vim.fn.isdirectory(package_dir) == 0 then
+            vim.fn.mkdir(package_dir, "p")
+        end
+    else
+        vim.notify("Invalid package name: " .. package_name)
+        return
+    end
+
+    local file_path = string.format("%s/%s.java", package_dir, class_name)
+    if vim.fn.filereadable(file_path) == 1 then
+        vim.notify("Class already exists: " .. file_path)
+        return
+    end
+
+    -- Initialize content of Java Class
+    local class_content = string.format(
+[[
+package %s;
+
+public class %s {
+
+}
+]],
+        package_name,
+        class_name
+    )
+    
+    local file = io.open(file_path, "w")
+    if file then
+        file:write(class_content)
+        file:close()
+    end
+
+    vim.cmd(":edit " .. file_path)
+    vim.cmd("redraw | echo")
+    vim.notify("Java class created: " .. file_path)
+
+end
+
+-- Create Java Interface
+function M.create_java_interface()
+    local package_name, canceled_package = get_maven_project_info("Enter Package Name: ", get_default_package())
+    if canceled_package then return end
+
+    local interface_name, canceled_interface = get_maven_project_info("Enter Interface Name: ", "")
+    if canceled_interface then return end
+
+    local package_dir = nil
+    if package_name then
+        package_dir = string.format("src/main/java/%s", package_name:gsub("%.", "/"))
+
+        if vim.fn.isdirectory(package_dir) == 0 then
+            vim.fn.mkdir(package_dir, "p")
+        end
+    else
+        vim.notify("Invalid package name: " .. package_name)
+        return
+    end
+
+    local file_path = string.format("%s/%s.java", package_dir, interface_name)
+    if vim.fn.filereadable(file_path) == 1 then
+        vim.notify("Interface already exists: " .. file_path)
+        return
+    end
+
+    -- Initialize content of Java Interface
+    local interface_content = string.format(
+[[
+package %s;
+
+public interface %s {
+
+}
+]],
+        package_name,
+        interface_name
+    )
+    
+    local file = io.open(file_path, "w")
+    if file then
+        file:write(interface_content)
+        file:close()
+    end
+
+    vim.cmd(":edit " .. file_path)
+    vim.cmd("redraw | echo")
+    vim.notify("Java interface created: " .. file_path)
+
+end
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --#region for Java
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -150,13 +272,13 @@ end
 
 vim.keymap.set("n", "<leader>hl", 
     function ()
-        local lines = vim.fn.readfile(vim.fn.getcwd() .. "\\.project") 
-        for linenum, line in ipairs(lines) do
-            if line:match("<name>JavaEcVim</name>") then
-                print(line)
+        -- local lines = vim.fn.readfile(vim.fn.getcwd() .. "\\.project") 
+        -- for linenum, line in ipairs(lines) do
+        --     if line:match("<name>JavaEcVim</name>") then
+        --         print(line)
 
-            end
-        end
+        --     end
+        -- end
     end
 , { desc = 'How to call '})
 -- END TESTING AREA
