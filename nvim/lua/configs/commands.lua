@@ -75,3 +75,12 @@ vim.api.nvim_create_user_command(
     utils.create_java_interface,
     {desc = "Create Java Interface"}
 )
+
+-- Run Java Project
+vim.api.nvim_create_user_command(
+    "JavaRun",
+    utils.java_run_project,
+    {desc = "Run Java Project"}
+)
+
+

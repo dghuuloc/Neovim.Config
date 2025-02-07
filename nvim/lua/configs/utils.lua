@@ -1,9 +1,5 @@
 local M = {} -- The module to export
 
-function M.greeting()
-    print("configs.utils.lua with Hello World!")
-end
-
 -- Clear Register
 function M.clearReg()
     vim.cmd [[
@@ -243,6 +239,7 @@ package %s;
 public interface %s {
 
 }
+
 ]],
         package_name,
         interface_name
@@ -257,6 +254,23 @@ public interface %s {
     vim.cmd(":edit " .. file_path)
     vim.cmd("redraw | echo")
     vim.notify("Java interface created: " .. file_path)
+
+end
+
+-- Java Run Project
+function M.java_run_project()
+    local group_package = vim.fn.expand('%')
+    group_package = group_package:gsub("\\", ".")
+    group_package = group_package:gsub("src.", ""):gsub(vim.fn.expand('%:t'), "")
+
+    local javaRun = string.format(
+        [[java -classpath bin %s%s]],
+        group_package,
+        vim.fn.expand('%:t:r')
+
+    )
+    -- Execute commands
+    execute_command(javaRun)
 
 end
 
