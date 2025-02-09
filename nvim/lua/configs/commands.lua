@@ -1,7 +1,7 @@
 local utils = require("configs.utils")
 
 -- Colorscheme
-vim.cmd.colorscheme("gruvdosx")
+-- vim.cmd.colorscheme("gruvdosx")
 
 -- Get h and l for moving over next lines or previous lines
 vim.cmd([[set whichwrap+=<,>,[,],h,l]])
