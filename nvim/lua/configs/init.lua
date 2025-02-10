@@ -15,18 +15,19 @@ local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 -- Check to see if lazy itself has been cloned, if not clone it into the lazy.nvim directory
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
 
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out, "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+
+        vim.fn.getchar()
+        os.exit(1)
+    end
 
 end
 
@@ -36,7 +37,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Use a protected call so we don't error out on first use
 local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
-  return
+    return
 end
 
 -- Setup lazy, this should always be last
@@ -55,12 +56,55 @@ lazy.setup({
 		    lazy = false,
 		    priority = 1000,
 
-		    config = function(_, opts)
-			vim.cmd.colorscheme('nord')
+		    config = function()
+                -- Load the colorscheme
+                require('nord').set()
+
+			    vim.cmd.colorscheme('nord')
 		    end
 		},
 
+        {
+            'windwp/nvim-autopairs',
+            event = "InsertEnter",
+            
+            config = function()
+                require("nvim-autopairs").setup({})
+            end
+        },
+
+        {
+            "lukas-reineke/indent-blankline.nvim",
+
+            config = function()
+                require("ibl").setup({
+                    scope = {
+				        show_start = false,
+			        },
+                    indent = {
+                        char = '┊',
+                        tab_char = "┊",
+                        smart_indent_cap = true,
+
+                    },
+                    whitespace = {
+				        remove_blankline_trail = true,
+			        },
+
+                    exclude = {
+                        filetypes = {
+                            'help',
+                            'neogitstatus',
+                        },
+                    },
+
+                })
+            end
+
+        },
+
         -- Add other plugins here...
+
 	},
 
 	-- Declare a few options for lazy

@@ -37,10 +37,6 @@ vim.api.nvim_create_autocmd('DiagnosticChanged', {
   end,
 })
 
-vim.api.nvim_create_user_command('DelRegs', function()
-    utils.clearReg()
-end, {})
-
 -- Create Maven New Project
 vim.api.nvim_create_user_command(
     "MavenNewProject",
