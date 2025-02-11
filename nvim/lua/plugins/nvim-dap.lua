@@ -9,7 +9,7 @@ return {
         "jbyuki/one-small-step-for-vimkind",
 
         -- Adapter for Python language
-        "mfussenegger/nvim-dap-python"
+        "mfussenegger/nvim-dap-python",
 
     },
 
@@ -32,14 +32,14 @@ return {
             dapui.open()
         end
         dap.listeners.before.attach.dapui_config = function()
-          dapui.open()
+            dapui.open()
         end
         -- Automatically close the UI when a new debug session is created.
         dap.listeners.before.event_terminated.dapui_config = function()
-          dapui.close()
+            dapui.close()
         end
         dap.listeners.before.event_exited.dapui_config = function()
-          dapui.close()
+            dapui.close()
         end
 
         -- (Step into): This allows you to enter debug mode.
@@ -60,7 +60,7 @@ return {
         vim.keymap.set("n", "<F9>", dap.toggle_breakpoint, { desc = "Debug Toggle Breakpoint" })
 
         -- set a vim motion to close the debugging ui
-        vim.keymap.set("n", "<leader>dc", dapui.close, {desc = "Debug Close"})
+        vim.keymap.set("n", "<leader>dc", dapui.close, { desc = "Debug Close" })
 
         -- set a vim motions to clear all breakpoints
         vim.keymap.set("n", "<leader>dC", function()
@@ -98,7 +98,19 @@ return {
         dap.adapters.python = {
             type = 'executable',
             command = 'python',
-            args = {'-m', 'debugpy.adapter'},
+            args = { '-m', 'debugpy.adapter' },
+        }
+
+        -- Adapter Javascript Setup
+        dap.adapters["pwa-node"] = {
+            type = "server",
+            host = "localhost",
+            port = "${port}",
+            executable = {
+                command = "node",
+                -- Make sure to install js-debug-adapter using ( :MasonInstall js-debug-adapter ) command
+                args = { vim.fn.stdpath('data') .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js", "${port}" },
+            },
         }
 
         dap.configurations = {
@@ -141,8 +153,22 @@ return {
                         return 'python'
                     end
                 }
-            }
-        }
+            },
 
+            -- Configurations for Javascript languages
+            javascript = {
+                {
+                    type = "pwa-node",
+                    request = "launch",
+                    name = "Launch file",
+                    program = "${file}",
+                    console = 'integratedTerminal',
+                    cwd = "${workspaceFolder}",
+                }
+        
+            },
+
+            -- Configurations for other languages
+        }
     end
 }
