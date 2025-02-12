@@ -77,7 +77,6 @@ return {
                     end,
 
                 },
-
             })
 
             -- Use LspAttach autocommand to only map the following keys after the language server attaches to the current buffer
@@ -91,10 +90,10 @@ return {
                     local opts = { noremap=true, silent=true, buffer = event.buf }
                     
                     -- :LspDefinition - Jumps to the definition of the symbol under the cursor
-                    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+                    vim.keymap.set("n", "gbd", vim.lsp.buf.definition, opts)
 
                     -- :LspHover - Displays hover information about the symbol under the cursor
-                    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+                    vim.keymap.set("n", "gbh", vim.lsp.buf.hover, opts)
 
                     -- :LspTypeDefinition - Jumps to the definition of the type of the symbol under the cursor
                     vim.keymap.set('n', 'gbt', vim.lsp.buf.type_definition, opts)
