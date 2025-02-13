@@ -1,4 +1,6 @@
-```lua return {
+# Boilerplate code for none-ls
+```lua 
+return {
     "nvimtools/none-ls.nvim",
 
     config = function()
