@@ -30,7 +30,15 @@ return {
                     "html",                     -- support for HTML file
                     "cssls",                    -- support for CSS file
                     "emmet_ls",                 -- support for HTML, CSS, Sass, SCSS and extended JavaScript files (JSX,TSX)
-                    "clangd"                    -- support for C, C++
+                    "clangd",                   -- support for C, C++
+
+                    -- FORMATTING
+                    "lemminx",
+                    "stylua",
+                    "google_java_format",
+                    "isort",
+                    "black",
+                    "prettier",
                 },
 
                 handlers = {
@@ -72,6 +80,13 @@ return {
                     -- Java Language Server Configuration
                     ["jdtls"] = function()
                         require("lspconfig").jdtls.setup {
+                            capabilities = capabilities,
+                        }
+                    end,
+
+                    -- Lemminx Language Server Configuration
+                    ["lemminx"] = function()
+                        require("lspconfig").lemminx.setup {
                             capabilities = capabilities,
                         }
                     end,
