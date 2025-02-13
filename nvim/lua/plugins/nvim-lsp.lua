@@ -31,14 +31,6 @@ return {
                     "cssls",                    -- support for CSS file
                     "emmet_ls",                 -- support for HTML, CSS, Sass, SCSS and extended JavaScript files (JSX,TSX)
                     "clangd",                   -- support for C, C++
-
-                    -- FORMATTING
-                    "lemminx",
-                    "stylua",
-                    "google_java_format",
-                    "isort",
-                    "black",
-                    "prettier",
                 },
 
                 handlers = {
