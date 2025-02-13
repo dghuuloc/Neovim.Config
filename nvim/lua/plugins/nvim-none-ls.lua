@@ -13,7 +13,6 @@ return {
                 null_ls.builtins.formatting.google_java_format,
 
                 -- for formatting xml
-                --null_ls.builtins.formatting.xmlformatter,
 
             },
         })
