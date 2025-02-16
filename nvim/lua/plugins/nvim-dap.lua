@@ -10,7 +10,6 @@ return {
 
         -- Adapter for Python language
         "mfussenegger/nvim-dap-python",
-
     },
 
     config = function()
@@ -75,12 +74,27 @@ return {
             vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>=", false, true, true), "n", false) --
         end, { desc = "Close debugger and end debugging session" })
 
+        -- set a vim motions to evaluate expression
+        vim.keymap.set({"n", "v"}, "<F2>", function()
+            dapui.eval()
+        end, { desc = "Evaluate" })
+
+        -- set a vim motions to evaluate input expression
+        vim.keymap.set("n", "<F3>", function()
+            dapui.eval(vim.fn.input "Expression > ")
+        end, { desc = "Evaluate Input" })
+
+        -- set a vim motions to hover Variables
+        vim.keymap.set("n", "<F4>", function()
+            require "dap.ui.widgets".hover()
+        end, { desc = "Hover Variables" })
+
         -- Adapter Lua Setup
         dap.adapters.nlua = function(callback, config)
             local adapter = {
-                type = 'server',
-                host = config.host or '127.0.0.1',
-                port = config.port or '8085'
+                type = "server",
+                host = config.host or "127.0.0.1",
+                port = config.port or "8085",
             }
             if config.start_neovim then
                 local dap_run = dap.run
@@ -96,9 +110,9 @@ return {
 
         -- Adapter Python Setup
         dap.adapters.python = {
-            type = 'executable',
-            command = 'python',
-            args = { '-m', 'debugpy.adapter' },
+            type = "executable",
+            command = "python",
+            args = { "-m", "debugpy.adapter" },
         }
 
         -- Adapter Javascript Setup
@@ -109,7 +123,10 @@ return {
             executable = {
                 command = "node",
                 -- Make sure to install js-debug-adapter using ( :MasonInstall js-debug-adapter ) command
-                args = { vim.fn.stdpath('data') .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js", "${port}" },
+                args = {
+                    vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+                    "${port}",
+                },
             },
         }
 
@@ -121,22 +138,22 @@ return {
                     request = "attach",
                     name = "Attach to the process",
                     hostName = "localhost",
-                    port = "8000"
-                }
+                    port = "8000",
+                },
             },
 
             -- Configurations for Lua language
             lua = {
                 {
-                    type = 'nlua',
-                    request = 'attach',
-                    name = 'Run current file',
+                    type = "nlua",
+                    request = "attach",
+                    name = "Run current file",
                     start_neovim = {},
-                    console = 'integratedTerminal'
+                    console = "integratedTerminal",
                 },
                 {
-                    type = 'nlua',
-                    request = 'attach',
+                    type = "nlua",
+                    request = "attach",
                     name = "Attach to running Neovim instance",
                 },
             },
@@ -144,15 +161,15 @@ return {
             -- Configurations for Python language
             python = {
                 {
-                    type = 'python',
-                    request = 'launch',
-                    name = 'Launch a debugging session',
-                    program = '${file}',
-                    console = 'integratedTerminal',
+                    type = "python",
+                    request = "launch",
+                    name = "Launch a debugging session",
+                    program = "${file}",
+                    console = "integratedTerminal",
                     pythonPath = function()
-                        return 'python'
-                    end
-                }
+                        return "python"
+                    end,
+                },
             },
 
             -- Configurations for Javascript languages
@@ -162,13 +179,12 @@ return {
                     request = "launch",
                     name = "Launch file",
                     program = "${file}",
-                    console = 'integratedTerminal',
+                    console = "integratedTerminal",
                     cwd = "${workspaceFolder}",
-                }
-        
+                },
             },
 
             -- Configurations for other languages
         }
-    end
+    end,
 }

@@ -30,6 +30,14 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+-- dap-float FileType
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "dap-float",
+    callback = function()
+        vim.api.nvim_buf_set_keymap(0, "n", "q", "<cmd>close!<CR>", { noremap = true, silent = true })
+    end
+})
+
 -- Disable all diagnostic
 vim.api.nvim_create_autocmd('DiagnosticChanged', {
   callback = function(opt)
