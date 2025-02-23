@@ -223,9 +223,3 @@ local config = {
 -- or attaches to an existing client & server depending on the `root_dir`
 require('jdtls').start_or_attach(config)
 
--- Change formatting in Java
-vim.opt_local["tabstop"] = 4                                  -- insert 4 spaces for a tab
-vim.opt_local["shiftwidth"] = 4                               -- the number of spaces inserted for each indentation
-vim.opt_local["softtabstop"] = 4                              -- number of spaces inserted for <Tab> key
-vim.opt_local["expandtab"] = true                             -- convert tabs to spaces
-

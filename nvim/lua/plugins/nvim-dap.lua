@@ -75,18 +75,18 @@ return {
         end, { desc = "Close debugger and end debugging session" })
 
         -- set a vim motions to evaluate expression
-        vim.keymap.set({"n", "v"}, "<F2>", function()
+        vim.keymap.set({ "n", "v" }, "<F2>", function()
             dapui.eval()
         end, { desc = "Evaluate" })
 
         -- set a vim motions to evaluate input expression
         vim.keymap.set("n", "<F3>", function()
-            dapui.eval(vim.fn.input "Expression > ")
+            dapui.eval(vim.fn.input("Expression > "))
         end, { desc = "Evaluate Input" })
 
         -- set a vim motions to hover Variables
         vim.keymap.set("n", "<F4>", function()
-            require "dap.ui.widgets".hover()
+            require("dap.ui.widgets").hover()
         end, { desc = "Hover Variables" })
 
         -- Adapter Lua Setup
