@@ -54,4 +54,7 @@ git clone --recursive https://github.com/microsoft/java-debug.git $env:LOCALAPPD
 git clone --recursive https://github.com/microsoft/vscode-java-test.git $env:LOCALAPPDATA/nvim-data
 ```
 
+## Reference
+- [jsregexp failed build on windows](https://github.com/L3MON4D3/LuaSnip/issues/986)
+
 
