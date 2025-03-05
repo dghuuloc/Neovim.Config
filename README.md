@@ -31,7 +31,28 @@ Color scheme:        One Half Dark
 Font face:           JetBrainsMonoNL Nerd Font
 Font-size:           11
 ```
-## Installation 
+## Installation
+### Post installation
+Below you can find OS specific install instructions for Neovim and dependencies.
+#### Windows Installation
+<details open><summary>Windows with gcc/make using chocolatey</summary>
+Install gcc and make which don't require changing the config, the easiest way is to use choco:
+
+1. install [chocolatey](https://chocolatey.org/install)
+either follow the instructions on the page or use winget,
+run in cmd as **admin**:
+```
+winget install --accept-source-agreements chocolatey.chocolatey
+```
+
+2. install all requirements using choco, exit the previous cmd and
+open a new one so that choco path is set, and run in cmd as **admin**:
+```
+choco install -y neovim git ripgrep wget fd unzip gzip mingw make
+```
+</details>
+
+### Install Recipes
 - __To install on Linux/Mac, open terminal and then run the command below__
 ```shell
 git clone --recursive https://github.com/dghuuloc/Neovim.Config.git ~/.config/nvim
