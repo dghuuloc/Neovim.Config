@@ -76,7 +76,6 @@ git clone --recursive https://github.com/microsoft/vscode-java-test.git $env:LOC
 ```
 
 ## Reference
-- [jsregexp failed build on windows](https://github.com/L3MON4D3/LuaSnip/issues/986)
-- [fix(jsregexp): fix install_jsregexp on Windows](https://github.com/L3MON4D3/LuaSnip/pull/1252)
+- [lspsaga](https://nvimdev.github.io/lspsaga/)
 
 
