@@ -9,7 +9,7 @@
 ## Prerequisites
 - [Neovim](https://github.com/neovim/neovim) ≥ v0.10.0
 - [git](https://git-scm.com/)
-- Install [MSYS2](https://www.msys2.org/) or [winstall](https://winstall.app/apps/MartinStorsjo.LLVM-MinGW.MSVCRT) - A C compiler is required to compile the parsers needed for nvim-treesitter and so on. Find out more at [here](https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support)
+- Install [MSYS2](https://www.msys2.org/) or [winstall](https://winstall.app/apps/MartinStorsjo.LLVM-MinGW.MSVCRT) or [clang](https://rust-lang.github.io/rust-bindgen/requirements.html?highlight=LIB)- A C compiler is required to compile the parsers needed for nvim-treesitter and so on. Find out more at [here](https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support)
 ```shell
 $ pacman -Syu
 $ pacman -Su
