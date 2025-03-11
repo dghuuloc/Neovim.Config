@@ -75,6 +75,8 @@ git clone --recursive https://github.com/microsoft/java-debug.git $env:LOCALAPPD
 git clone --recursive https://github.com/microsoft/vscode-java-test.git $env:LOCALAPPDATA/nvim-data
 ```
 
+## How do I install a package in Neovim without a package manager?
+
 ## Reference
 - [lspsaga](https://nvimdev.github.io/lspsaga/)
 
