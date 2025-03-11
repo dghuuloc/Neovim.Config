@@ -76,6 +76,11 @@ git clone --recursive https://github.com/microsoft/vscode-java-test.git $env:LOC
 ```
 
 ## How do I install a package in Neovim without a package manager?
+In Neovim, you can install plugins into `~/.config/nvim/pack/FOOBAR/start/` (replacing `FOOBAR` with any directory name you choose), similarly to how you can use [Vim 8.0's native support for packages](https://vi.stackexchange.com/questions/9522/what-is-the-vim8-package-feature-and-how-should-i-use-it).
+
+Alternatively, you can also install plugins into ~/.local/share/nvim/site/pack/FOOBAR/start/ (replacing FOOBAR with any directory name you choose).
+
+To find the full list of places where you can put a package, run `:set packpath?` . You can install packages in the `pack/FOOBAR/start/` subdirectory of each one of these directories listed by that command, replacing `FOOBAR` with any directory name you like. (If you've [configured Neovim to load Vim configuration](https://neovim.io/doc/user/nvim.html#nvim-from-vim), then you will probably find ~/.vim in the list of directories, which means you can also put plugins in ~/.vim/pack/FOOBAR/start/ , just like for Vim.)
 
 ## Reference
 - [lspsaga](https://nvimdev.github.io/lspsaga/)
