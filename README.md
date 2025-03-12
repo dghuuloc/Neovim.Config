@@ -75,6 +75,11 @@ git clone --recursive https://github.com/microsoft/java-debug.git $env:LOCALAPPD
 git clone --recursive https://github.com/microsoft/vscode-java-test.git $env:LOCALAPPDATA/nvim-data
 ```
 
+### __Install Python Debug Server via `pip` (optional)__
+```shell
+python -m pip install debugpy
+```
+
 ## How do I install a package in Neovim without a package manager?
 In Neovim, you can install plugins into `~/.config/nvim/pack/FOOBAR/start/` (replacing `FOOBAR` with any directory name you choose), similarly to how you can use [Vim 8.0's native support for packages](https://vi.stackexchange.com/questions/9522/what-is-the-vim8-package-feature-and-how-should-i-use-it).
 
