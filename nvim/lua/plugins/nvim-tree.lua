@@ -5,8 +5,8 @@ return {
         -- disable netrw at the very start
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
-        
-        local HEIGHT_RATIO = 0.8 
+
+        local HEIGHT_RATIO = 0.8
         local WIDTH_RATIO = 0.6
 
         require("nvim-tree").setup({
@@ -46,7 +46,7 @@ return {
                         local window_h_int = math.floor(window_h)
                         local center_x = (screen_w - window_w) / 2
                         local center_y = ((vim.opt.lines:get() - window_h) / 2) - vim.opt.cmdheight:get()
-                        
+
                         return {
                             border = "rounded",
                             relative = "editor",
@@ -65,7 +65,7 @@ return {
             },
 
         })
-        
+
         --[[ NVIM-TREE KEYMAPS ]]
         -- NvimTree Toggle File Explorer
         vim.keymap.set("n", "<leader>ee", ":NvimTreeToggle<CR>", {noremap = true, silent = true, desc = " Open or close the tree. Takes an optional path argument"})

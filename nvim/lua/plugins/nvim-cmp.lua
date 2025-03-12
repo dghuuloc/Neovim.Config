@@ -3,12 +3,12 @@ return {
         "hrsh7th/nvim-cmp",
         event = { "InsertEnter", "CmdlineEnter" },
         dependencies = {
+            -- lua API
+            "hrsh7th/cmp-nvim-lua",
             -- buffer based completion options
             "hrsh7th/cmp-buffer",
             -- path based completion options
             "hrsh7th/cmp-path",
-            -- lua API
-            "hrsh7th/cmp-nvim-lua",
             -- cmdline based completion options
             "hrsh7th/cmp-cmdline",
 
@@ -78,7 +78,7 @@ return {
                 },
             })
 
-            -- `/` cmdline setup.
+            -- `/` cmdline setup
             cmp.setup.cmdline('/', {
                 mapping = cmp.mapping.preset.cmdline({
                     ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item()),
@@ -95,7 +95,7 @@ return {
                 }
             })
 
-            -- `:` cmdline setup.
+            -- `:` cmdline setup
             cmp.setup.cmdline(':', {
                 mapping = cmp.mapping.preset.cmdline({
                     ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item()),

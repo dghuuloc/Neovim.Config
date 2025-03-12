@@ -27,7 +27,7 @@ return {
                end
                return fullpath
            end
-           
+
            fzf.fzf_exec(cmd, {
                defaults = {},
                prompt = 'Create new file in directory> ',
@@ -62,7 +62,7 @@ return {
                        end)
                    end,
                },
-           })        
+           })
        end
 
        -- set a vim motion to search for files by their names

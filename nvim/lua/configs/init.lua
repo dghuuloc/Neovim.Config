@@ -41,16 +41,21 @@ end
 
 -- Setup lazy, this should always be last
 lazy.setup({
-    -- import/override with your plugins	
+    -- import/override with your plugins
     spec = {
         -- Tell lazy that all plugin specs are found in the plugins directory
         { import = "plugins" },
-
         -- Add more plugins without configuration
         { "nvim-lua/plenary.nvim" },
+        {
+            "shaunsingh/nord.nvim",
+            lazy = false,
+            priority = 1000,
 
-        -- Add other plugins here...
-
+            config = function ()
+                vim.cmd[[colorscheme nord]]
+            end
+        },
     },
 
     -- Declare a few options for lazy
@@ -63,5 +68,5 @@ lazy.setup({
         enabled = true,
         -- Don't spam us with notification every time there is an update available
         notify = false,
-    }
+    },
 })

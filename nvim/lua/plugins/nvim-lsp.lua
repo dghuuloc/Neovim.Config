@@ -95,7 +95,7 @@ return {
 
                     -- Buffer local mappings.
                     local opts = { noremap=true, silent=true, buffer = event.buf }
-                    
+
                     -- :LspDefinition - Jumps to the definition of the symbol under the cursor
                     vim.keymap.set("n", "gbd", vim.lsp.buf.definition, opts)
 

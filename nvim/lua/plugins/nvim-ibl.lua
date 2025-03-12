@@ -1,6 +1,5 @@
 return {
     "lukas-reineke/indent-blankline.nvim",
-
     config = function()
         require("ibl").setup({
             scope = {
@@ -15,14 +14,12 @@ return {
             whitespace = {
                 remove_blankline_trail = true,
             },
-
             exclude = {
                 filetypes = {
                     'help',
                     'NvimTree',
                 },
             },
-
         })
     end
 

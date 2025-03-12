@@ -16,10 +16,7 @@ return {
                 null_ls.builtins.formatting.isort,
                 null_ls.builtins.formatting.black,
 
-                --[[
-                    Filetypes: { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less", "html",
-                    "json", "jsonc", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars", "svelte", "astro", "htmlangular" }
-                ]]
+                -- for javascript,...
                 null_ls.builtins.formatting.prettier,
 
             },
