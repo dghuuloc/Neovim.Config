@@ -7,21 +7,8 @@ return {
             "hrsh7th/cmp-buffer",
             -- path based completion options
             "hrsh7th/cmp-path",
-            -- lua snippet suggestions to cmp
-            {
-                "L3MON4D3/LuaSnip",
-                -- follow latest release.
-                version = "v2.*",
-                -- install jsregexp (optional!).
-                build = "make install_jsregexp",
-
-            },
-            -- feed luasnip suggestions to cmp
-            "saadparwaiz1/cmp_luasnip",
             -- lua API
             "hrsh7th/cmp-nvim-lua",
-            -- provide vscode like snippets to cmp
-            "rafamadriz/friendly-snippets",
             -- cmdline based completion options
             "hrsh7th/cmp-cmdline",
 
@@ -30,9 +17,6 @@ return {
             -- Gain access to the functions of the cmp plugin
             local cmp = require("cmp")
 
-            -- Lazily load the vscode like snippets
-            require("luasnip.loaders.from_vscode").lazy_load()
-
             cmp.setup({
                 completion = {
                     -- menu: display options in a menu
@@ -40,13 +24,6 @@ return {
                     -- preview: automatically display the completion candiate as you navigate the menu
                     -- noselect: prevent neovim from automatically selecting a completion option while navigating the menu
                     completeopt = "menu,menuone,preview,noselect",
-                },
-
-                -- setup snippet support based on the active lsp and the current text of the file
-                snippet = {
-                    expand = function(args)
-                        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-                    end,
                 },
 
                 window = {
@@ -72,7 +49,6 @@ return {
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
                     { name = 'nvim_lua', option = { include_deprecated = true } },
-                    { name = "luasnip" },       -- snippets
                     { name = "buffer" },        -- text within current buffer
                     { name = "path" },          -- file system paths
                 }),
@@ -85,7 +61,6 @@ return {
                         vim_item.menu = ({
                             nvim_lsp = "[LSP]",
                             nvim_lua = "[Lua]",
-                            luasnip = "[LuaSnip]",
                             buffer = "[Buffer]",
                             path = "[Path]",
                         })[entry.source.name]
@@ -94,7 +69,6 @@ return {
                         vim_item.dup = ({
                             nvim_lsp = 0,
                             nvim_lua = 0,
-                            luasnip = 0,
                             buffer = 0,
                             path = 0,
                         })[entry.source.name] or 0

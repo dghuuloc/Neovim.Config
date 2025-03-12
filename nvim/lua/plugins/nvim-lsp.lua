@@ -26,11 +26,11 @@ return {
                     "ts_ls",                    -- support for JavaScript, TypeScript and React
                     "lua_ls",                   -- support for Lua
                     "eslint",                   -- support for JavaScript and TypeScript files
-                    "jsonls",                   -- support for Json file
-                    "html",                     -- support for HTML file
-                    "cssls",                    -- support for CSS file
-                    "emmet_ls",                 -- support for HTML, CSS, Sass, SCSS and extended JavaScript files (JSX,TSX)
-                    "clangd",                   -- support for C, C++
+                    -- "jsonls",                   -- support for Json file
+                    -- "html",                     -- support for HTML file
+                    -- "cssls",                    -- support for CSS file
+                    -- "emmet_ls",                 -- support for HTML, CSS, Sass, SCSS and extended JavaScript files (JSX,TSX)
+                    -- "clangd",                   -- support for C, C++
                 },
 
                 handlers = {

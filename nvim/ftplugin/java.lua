@@ -3,10 +3,12 @@
 local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:h')
 
 local jdtls_path = require("mason-registry").get_package("jdtls"):get_install_path()
+local java_dap_path = require("mason-registry").get_package("java-debug-adapter"):get_install_path()
 
 -- This bundles definition is the same as in the previous section (java-debug installation)
 local bundles = {
-    vim.fn.glob(vim.fn.stdpath("data") .. "/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1),
+    -- vim.fn.glob(vim.fn.stdpath("data") .. "/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1),
+    vim.fn.glob(java_dap_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", 1),
 };
 
 -- This is the new part
