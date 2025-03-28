@@ -1,3 +1,4 @@
+```lua
 -------------------------------------------------------------------------------------------------
 -- #REGION FOR CUSTOMIZE JDTLS LANGUAGE SERVER 
 -------------------------------------------------------------------------------------------------
@@ -154,3 +155,4 @@ vim.api.nvim_create_user_command("JdtStart",
     
    { desc = "Start or Attatch Java Language Server" }
 )
+```
