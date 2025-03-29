@@ -21,7 +21,7 @@ java -classpath bin:lib\commons-lang-2.6.jar:lib\gson-2.10.1.jar:lib\guava-20.0.
 ```makefile
 # Target for running up compiled classes
 comp:
-	javac -classpath ./lib/gson-2.10.1.jar;lib/ojdbc8.jar -d ./bin/ ./src/com/*.java
+	javac -classpath ./lib/gson-2.10.1.jar;lib/ojdbc8.jar -d ./bin/ ./src/com/*.java ./src/com/impl/*.java
 run:
 	java -classpath bin;lib/gson-2.10.1.jar;lib/ojdbc8.jar Main
 ```
