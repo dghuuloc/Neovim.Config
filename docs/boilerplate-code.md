@@ -55,3 +55,4 @@ java -cp test:bin:junit-4.8.1.jar orrg.junit.runner.JUnitCore  cs5223.GameTest c
 ## Reference
 * [How to compile, package and run a Java program using command-line tools (javac, jar and java)](https://www.codejava.net/java-core/tools/how-to-compile-package-and-run-a-java-program-using-command-line-tools-javac-jar-and-java)
 * [Compiling to Java](https://javarush.com/en/groups/posts/en.2318.compiling-to-java)
+* [Running JUnit Tests in Command Line](https://jojozhuang.github.io/programming/running-junit-tests-in-command-line/)
