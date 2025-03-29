@@ -20,6 +20,8 @@ java -classpath bin:lib\commons-lang-2.6.jar:lib\gson-2.10.1.jar:lib\guava-20.0.
 ### makefile Boilerplate
 ```makefile
 # Target for running up compiled classes
+comp:
+	javac -classpath ./lib/gson-2.10.1.jar;lib/ojdbc8.jar -d ./bin/ ./src/com/*.java
 run:
 	java -classpath bin;lib/gson-2.10.1.jar;lib/ojdbc8.jar Main
 ```
