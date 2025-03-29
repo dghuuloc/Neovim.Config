@@ -47,10 +47,10 @@ attach:
 
 ```Makefile
 comp:
-	@javac -cp ./lib/junit-4.12.jar -d ./out/ ./src/main/*.java ./src/test/*.java
-
+	@javac -cp ./lib/junit-4.12.jar -d ./out/ ./src/main/jv/*.java ./src/test/jv/*.java
+	@echo "Compiled Successfully!"
 exec:
-	@java -cp ./out;./lib/junit-4.12.jar;./lib/hamcrest-core-1.3.jar main.TestRunner
+	@java -cp ./out;./lib/junit-4.12.jar;./lib/hamcrest-core-1.3.jar main.jv.TestRunner
 ```
 
 ## Reference
