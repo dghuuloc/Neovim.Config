@@ -42,3 +42,6 @@ debug:
 attach:
 	@jdb -connect com.sun.jdi.SocketAttach:hostname=localhost,port=8000
 ```
+
+## Reference
+* [How to compile, package and run a Java program using command-line tools (javac, jar and java)](https://www.codejava.net/java-core/tools/how-to-compile-package-and-run-a-java-program-using-command-line-tools-javac-jar-and-java)
