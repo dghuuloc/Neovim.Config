@@ -44,12 +44,13 @@ attach:
 ```
 
 ### How to run junit tests
-```
-# Building the tests.
-javac -cp junit-4.8.1.jar:src -d test/ test/cs5223/GameTest.java test/cs5223/PlayerTest.java
 
-# Runing the tests
-java -cp test:bin:junit-4.8.1.jar orrg.junit.runner.JUnitCore  cs5223.GameTest cs5223.PlayerTest
+```Makefile
+comp:
+	@javac -cp ./lib/junit-4.12.jar -d ./out/ ./src/main/*.java ./src/test/*.java
+
+exec:
+	@java -cp ./out;./lib/junit-4.12.jar;./lib/hamcrest-core-1.3.jar main.TestRunner
 ```
 
 ## Reference
