@@ -43,5 +43,15 @@ attach:
 	@jdb -connect com.sun.jdi.SocketAttach:hostname=localhost,port=8000
 ```
 
+### How to run junit tests
+```
+# Building the tests.
+javac -cp junit-4.8.1.jar:src -d test/ test/cs5223/GameTest.java test/cs5223/PlayerTest.java
+
+# Runing the tests
+java -cp test:bin:junit-4.8.1.jar orrg.junit.runner.JUnitCore  cs5223.GameTest cs5223.PlayerTest
+```
+
 ## Reference
 * [How to compile, package and run a Java program using command-line tools (javac, jar and java)](https://www.codejava.net/java-core/tools/how-to-compile-package-and-run-a-java-program-using-command-line-tools-javac-jar-and-java)
+* [Compiling to Java](https://javarush.com/en/groups/posts/en.2318.compiling-to-java)
