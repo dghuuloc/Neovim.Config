@@ -25,10 +25,6 @@ comp:
 run:
 	java -classpath bin;lib/gson-2.10.1.jar;lib/ojdbc8.jar Main
 ```
-#### How to run Java Code from nvim Command
-```
-:!makefile run
-```
 
 ---
 ### How to create makefile for executing Maven Project
