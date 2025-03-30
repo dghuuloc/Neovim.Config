@@ -44,15 +44,24 @@ attach:
 ```
 
 ### How to run junit tests
-
+#### With Junit 4
 ```Makefile
 comp:
 	@javac -cp ./lib/junit-4.12.jar -d ./out/ ./src/main/jv/*.java ./src/test/jv/*.java
-	@javac -cp ./lib/junit-platform-console-standalone-1.11.4.jar -d ./out  ./src/main/Invoker.java ./src/main/tree/*.java ./src/test/*.java
 exec:
 	@java -cp ./out;./lib/junit-4.12.jar;./lib/hamcrest-core-1.3.jar main.jv.TestRunner
+```
+#### With Junit 5
+```
+comp:
+	@javac -cp ./lib/junit-platform-console-standalone-1.11.4.jar -d ./out  ./src/main/Invoker.java ./src/main/tree/*.java ./src/test/*.java
+deb:
+	@javac -g -cp ./lib/junit-platform-console-standalone-1.11.4.jar -d ./out  ./src/main/Invoker.java ./src/main/tree/*.java ./src/test/*.java
+exec:
 	@java -jar ./lib/junit-platform-console-standalone-1.11.4.jar --class-path ./out --scan-classpath --include-classname test.InvokerTest
 	@java -jar ./lib/junit-platform-console-standalone-1.11.4.jar --class-path ./out --scan-classpath
+jdb:
+	@jdb -sourcepath ./src -classpath ./out main.Invoker
 ```
 
 ## Reference
