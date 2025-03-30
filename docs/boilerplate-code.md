@@ -48,12 +48,15 @@ attach:
 ```Makefile
 comp:
 	@javac -cp ./lib/junit-4.12.jar -d ./out/ ./src/main/jv/*.java ./src/test/jv/*.java
-	@echo "Compiled Successfully!"
+	@javac -cp ./lib/junit-platform-console-standalone-1.11.4.jar -d ./out  ./src/main/Invoker.java ./src/main/tree/*.java ./src/test/*.java
 exec:
 	@java -cp ./out;./lib/junit-4.12.jar;./lib/hamcrest-core-1.3.jar main.jv.TestRunner
+	@java -jar ./lib/junit-platform-console-standalone-1.11.4.jar --class-path ./out --scan-classpath --include-classname test.InvokerTest
+	@java -jar ./lib/junit-platform-console-standalone-1.11.4.jar --class-path ./out --scan-classpath
 ```
 
 ## Reference
 * [How to compile, package and run a Java program using command-line tools (javac, jar and java)](https://www.codejava.net/java-core/tools/how-to-compile-package-and-run-a-java-program-using-command-line-tools-javac-jar-and-java)
 * [Compiling to Java](https://javarush.com/en/groups/posts/en.2318.compiling-to-java)
 * [Running JUnit Tests in Command Line](https://jojozhuang.github.io/programming/running-junit-tests-in-command-line/)
+* [How to run JUnit test cases from the command line](https://codemia.io/knowledge-hub/path/how_to_run_junit_test_cases_from_the_command_line)
