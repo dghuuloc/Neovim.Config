@@ -60,3 +60,4 @@ exec:
 * [Compiling to Java](https://javarush.com/en/groups/posts/en.2318.compiling-to-java)
 * [Running JUnit Tests in Command Line](https://jojozhuang.github.io/programming/running-junit-tests-in-command-line/)
 * [How to run JUnit test cases from the command line](https://codemia.io/knowledge-hub/path/how_to_run_junit_test_cases_from_the_command_line)
+* [Dynamic Tests with JUnit 5 in Command Line](https://jojozhuang.github.io/programming/dynamic-tests-with-junit5-in-command-line/)
